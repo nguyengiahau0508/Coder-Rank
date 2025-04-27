@@ -1,0 +1,50 @@
+<div class="testcase-container">
+  @for (testCase of testcases; track testCase) {
+  <div class="testcase">
+    <div class="testcase-header" (click)="onToggleTestCase(testCase.order)">
+      <span>
+        {{ testCase.expanded ? '⯆' : '⯈' }} Test Case {{ testCase.order + 1 }}
+        @if(isLoading){
+        <span class="loading-icon"></span>
+        } @else {
+        @if(testCase.output){
+        <b [ngClass]="{
+          'status-pending': testCase.status === 'pending',
+          'status-passed': testCase.status === 'passed',
+          'status-failed': testCase.status === 'failed',
+          'status-time-exceeded': testCase.status === 'time_limit_exceeded',
+          'status-memory-exceeded': testCase.status === 'memory_limit_exceeded',
+          'status-runtime-error': testCase.status === 'runtime_error',
+          'status-compilation-error': testCase.status === 'compilation_error'
+        }">
+          {{ testCase.status }}
+        </b>
+        }
+        }
+      </span>
+
+      @if (testcases.length > 1) {
+      <button class="remove-btn" (click)="removeTestCase(testCase.order)">✖</button>
+      }
+    </div>
+
+    @if(testCase.expanded){
+    <label for="input-{{ testCase.order }}">Đầu vào:</label>
+    <textarea id="input-{{ testCase.order }}" (input)="onInputChange($event, testCase.order, 'input')"
+      [(ngModel)]="testCase.input" placeholder="Nhập đầu vào ở đây..."></textarea>
+
+    <label for="expected-output-{{ testCase.order }}">Đầu ra mong đợi:</label>
+    <textarea id="expected-output-{{ testCase.order }}" (input)="onInputChange($event, testCase.order, 'expected')"
+      [(ngModel)]="testCase.expected" placeholder="Đầu ra mong đợi..."></textarea>
+
+    @if(testCase.status=="passed" && testCase.output ){
+    <label for="expected-output-{{ testCase.output}}">Đầu ra:</label>
+    <textarea id="expected-output-{{ testCase.output}}" [(ngModel)]="testCase.output" readonly></textarea>
+    }
+    }
+
+  </div>
+  }
+
+  @if(testcases.length<3){ <button (click)="addTestCase()">+ Thêm Test Case</button>}
+</div>

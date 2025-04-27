@@ -1,0 +1,19 @@
+<div class="testcase-container">
+  <div class="testcase-input">
+    <div class="testcase-header">
+      <h3>🔹 Đầu vào</h3>
+      <button class="copy-btn" (click)="copyInputToClipboard(testcase.input)">📋
+        {{isInputCopied?'Đã sao chép':'Sao chép'}}</button>
+    </div>
+    <pre>{{ testcase.input }}</pre>
+  </div>
+
+  <div class="testcase-output">
+    <div class="testcase-header">
+      <h3>🔸 Đầu ra</h3>
+      <button class="copy-btn" (click)="copyOutputToClipboard(testcase.input)">📋
+        {{isOutputCopied?'Đã sao chép':'Sao chép'}}</button>
+    </div>
+    <pre>{{ testcase.output }}</pre>
+  </div>
+</div>

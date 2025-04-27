@@ -1,0 +1,38 @@
+<div class="solution-wrapper">
+  @if(problem()){
+  <app-tab-navigation [problemId]="problem()!.id" [hasProblem]="true" [hasSubmit]="true"
+    [hasHistory]="true"></app-tab-navigation>
+  }
+
+  <div class="solution-content">
+    <div class="solution-left">
+      @if(submission() ){
+      <div class="submission-container">
+        <span class="expand-icon">➕</span>
+        <span class="submission-text">
+          Lần nộp bài cuối cùng của bạn vượt qua <span class="highlight">8%</span> thời gian chạy của các bài nộp khác.
+        </span>
+        <button [routerLink]="'/problems/' + problem()!.id + '/post-solution'" class="share-button">
+          <span class="icon">🔗</span> Chia sẻ giải pháp của tôi
+        </button>
+      </div>
+      }
+      <div class="solution-list">
+        @for(solution of solutions;track solution.id){
+        <app-solution-item [solution]="solution" />
+        }
+      </div>
+      @if(pageMeta){
+          <app-pagination [totalItems]="pageMeta.itemCount!" [itemsPerPage]="pageMeta.take!" [currentPage]="pageMeta.page!"
+          (pageChange)="onPageChange($event)" />
+      }
+
+    </div>
+
+    <div class="solution-right">
+      <div class="solution-filter">
+        <app-solution-filter (filterChanged)="onFilterChange($event)" />
+      </div>
+    </div>
+  </div>
+</div>

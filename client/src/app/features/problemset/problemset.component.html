@@ -1,0 +1,18 @@
+<div class="problems-container">
+  <app-tab-navigation [hasRunner]="true" [hasStatus]="true" />
+  <div class="problem-list-main">
+    <div class="problem-list-container">
+      <app-problem-list [problems]="problems()"></app-problem-list>
+      @if(pageMeta().pageCount){
+      <app-pagination [totalItems]="pageMeta().itemCount!" [itemsPerPage]="pageMeta().take!"
+        [currentPage]="pageMeta().page!" (pageChange)="onPageChange($event)">
+      </app-pagination>
+      }
+    </div>
+
+    <div class="problem-filter-container">
+      <app-problem-filter (filterChanged)="onFilterChange($event)"></app-problem-filter>
+    </div>
+
+  </div>
+</div>

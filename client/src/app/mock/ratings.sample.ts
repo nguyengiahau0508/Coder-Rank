@@ -1,0 +1,35 @@
+import { Rating } from "../core/models/rating.model";
+
+export const sampleRatings: Rating[] = [
+  { id: 1, userId: 1, contestId: 1, oldRating: 1500, newRating: 1520, changedAt: '2024-02-01T10:00:00Z' },
+  { id: 2, userId: 2, contestId: 1, oldRating: 1450, newRating: 1480, changedAt: '2024-02-01T10:05:00Z' },
+  { id: 3, userId: 3, contestId: 1, oldRating: 1600, newRating: 1590, changedAt: '2024-02-01T10:10:00Z' },
+  { id: 4, userId: 4, contestId: 2, oldRating: 1700, newRating: 1725, changedAt: '2024-02-02T11:15:00Z' },
+  { id: 5, userId: 5, contestId: 2, oldRating: 1550, newRating: 1570, changedAt: '2024-02-02T11:20:00Z' },
+  { id: 6, userId: 6, contestId: 2, oldRating: 1400, newRating: 1380, changedAt: '2024-02-02T11:25:00Z' },
+  { id: 7, userId: 7, contestId: 3, oldRating: 1650, newRating: 1665, changedAt: '2024-02-03T12:30:00Z' },
+  { id: 8, userId: 8, contestId: 3, oldRating: 1500, newRating: 1510, changedAt: '2024-02-03T12:35:00Z' },
+  { id: 9, userId: 9, contestId: 3, oldRating: 1750, newRating: 1760, changedAt: '2024-02-03T12:40:00Z' },
+  { id: 10, userId: 10, contestId: 4, oldRating: 1800, newRating: 1790, changedAt: '2024-02-04T13:45:00Z' },
+  { id: 11, userId: 1, contestId: 5, oldRating: 1520, newRating: 1535, changedAt: '2024-02-05T14:00:00Z' },
+  { id: 12, userId: 2, contestId: 5, oldRating: 1480, newRating: 1495, changedAt: '2024-02-05T14:10:00Z' },
+  { id: 13, userId: 3, contestId: 5, oldRating: 1590, newRating: 1605, changedAt: '2024-02-05T14:20:00Z' },
+  { id: 14, userId: 4, contestId: 6, oldRating: 1725, newRating: 1740, changedAt: '2024-02-06T15:15:00Z' },
+  { id: 15, userId: 5, contestId: 6, oldRating: 1570, newRating: 1585, changedAt: '2024-02-06T15:25:00Z' },
+  { id: 16, userId: 6, contestId: 6, oldRating: 1380, newRating: 1375, changedAt: '2024-02-06T15:30:00Z' },
+  { id: 17, userId: 7, contestId: 7, oldRating: 1665, newRating: 1680, changedAt: '2024-02-07T16:40:00Z' },
+  { id: 18, userId: 8, contestId: 7, oldRating: 1510, newRating: 1525, changedAt: '2024-02-07T16:45:00Z' },
+  { id: 19, userId: 9, contestId: 7, oldRating: 1760, newRating: 1775, changedAt: '2024-02-07T16:50:00Z' },
+  { id: 20, userId: 10, contestId: 8, oldRating: 1790, newRating: 1805, changedAt: '2024-02-08T17:55:00Z' },
+  { id: 21, userId: 1, contestId: 9, oldRating: 1535, newRating: 1550, changedAt: '2024-02-09T18:00:00Z' },
+  { id: 22, userId: 2, contestId: 9, oldRating: 1495, newRating: 1510, changedAt: '2024-02-09T18:05:00Z' },
+  { id: 23, userId: 3, contestId: 9, oldRating: 1605, newRating: 1620, changedAt: '2024-02-09T18:10:00Z' },
+  { id: 24, userId: 4, contestId: 10, oldRating: 1740, newRating: 1755, changedAt: '2024-02-10T19:15:00Z' },
+  { id: 25, userId: 5, contestId: 10, oldRating: 1585, newRating: 1595, changedAt: '2024-02-10T19:20:00Z' },
+  { id: 26, userId: 6, contestId: 10, oldRating: 1375, newRating: 1365, changedAt: '2024-02-10T19:30:00Z' },
+  { id: 27, userId: 7, contestId: 11, oldRating: 1680, newRating: 1695, changedAt: '2024-02-11T20:40:00Z' },
+  { id: 28, userId: 8, contestId: 11, oldRating: 1525, newRating: 1540, changedAt: '2024-02-11T20:45:00Z' },
+  { id: 29, userId: 9, contestId: 11, oldRating: 1775, newRating: 1785, changedAt: '2024-02-11T20:50:00Z' },
+  { id: 30, userId: 10, contestId: 12, oldRating: 1805, newRating: 1820, changedAt: '2024-02-12T21:00:00Z' }
+];
+

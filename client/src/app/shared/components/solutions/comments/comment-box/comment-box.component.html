@@ -1,0 +1,12 @@
+<div class="comment-box">
+  @if(isPreview){
+  <div class="comment-preview" markdown ngPreserveWhitespaces>{{commentText}}</div>
+  } @else {
+  <textarea   (input)="autoResize()" [(ngModel)]="commentText" class="comment-input"
+    placeholder="Nhập bình luận của bạn vào đây..."></textarea>
+  }
+  <div class="comment-actions">
+    <button class="preview-btn" (click)="onPreview()">{{isPreview ? "Sửa" : "Xem trước"}}</button>
+    <button class="comment-btn" (click)="onPostComment()">Đăng bình luận</button>
+  </div>
+</div>

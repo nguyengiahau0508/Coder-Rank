@@ -1,0 +1,160 @@
+<!-- Header -->
+<div class="flex justify-between items-center p-4 bg-[#19223C] text-white rounded-t-md">
+  <h1 class="text-2xl font-bold">Create Lesson</h1>
+</div>
+
+<!-- Form -->
+<form (submit)="onSubmit()" class="bg-white">
+  <div class="p-4 space-y-6">
+    @if (isLoading()) {
+      <app-loading></app-loading>
+    } @else {
+      <!-- Title -->
+      <div>
+        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="lesson().title"
+          name="title"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+        />
+      </div>
+
+      <!-- Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for="order" class="block text-sm font-medium text-gray-700 mb-1">Order</label>
+          <input
+            type="number"
+            id="order"
+            [(ngModel)]="lesson().order"
+            name="order"
+            required
+            class="w-20 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
+        <app-text-editor (htmlChange)="onContentChange($event)"></app-text-editor>
+      </div>
+
+      <!-- Question Form -->
+      <div class="border-t pt-4">
+        <h2 class="text-lg font-semibold mb-4">Questions</h2>
+        <div class="space-y-4">
+          @for (question of lesson().questions; track question.id; let i = $index) {
+            <div class="border p-4 rounded-md">
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    (click)="toggleCollapse(i)"
+                    class="text-gray-500 hover:text-gray-700"
+                  >
+                    {{ collapsedQuestions.has(i) ? '▶' : '▼' }}
+                  </button>
+                  <label class="text-sm font-medium text-gray-700">
+                    Question {{ i + 1 }} ({{ question.type === 'multiple' ? 'Multiple Choice' : 'Single Choice' }})
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  (click)="removeQuestion(i)"
+                  class="text-red-500 hover:text-red-700"
+                >
+                  Remove
+                </button>
+              </div>
+
+              @if (!collapsedQuestions.has(i)) {
+                <div class="space-y-2">
+                  <input
+                    type="text"
+                    [(ngModel)]="question.text"
+                    name="question_{{ i }}"
+                    placeholder="Enter question text"
+                    class="w-full p-2 border border-gray-300 rounded-md shadow-sm mb-2"
+                  />
+
+                  <div class="ml-4 space-y-2">
+                    @for (answer of question.answers; track $index; let j = $index) {
+                      <div class="flex items-center gap-2">
+                        <input
+                          type="{{ question.type === 'multiple' ? 'checkbox' : 'radio' }}"
+                          [checked]="answer.isCorrect"
+                          [name]="'answer_' + i"
+                          (change)="updateAnswerCorrectness(i, j)"
+                        />
+                        <input
+                          type="text"
+                          [(ngModel)]="answer.text"
+                          name="answer_text_{{ i }}_{{ j }}"
+                          placeholder="Enter answer text"
+                          class="flex-1 p-2 border border-gray-300 rounded-md shadow-sm"
+                        />
+                        <button
+                          type="button"
+                          (click)="removeAnswer(i, j)"
+                          class="text-red-500 hover:text-red-700"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    }
+                    <button
+                      type="button"
+                      (click)="addAnswer(i)"
+                      class="text-sm text-[#67A4AC] hover:text-[#19223C]"
+                    >
+                      + Add Answer
+                    </button>
+                  </div>
+                </div>
+              }
+            </div>
+          }
+
+          <!-- Add question buttons -->
+          <div class="flex gap-2">
+            <button
+              type="button"
+              (click)="addQuestion('multiple')"
+              class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C]"
+            >
+              Add Multiple Choice Question
+            </button>
+            <button
+              type="button"
+              (click)="addQuestion('single')"
+              class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C]"
+            >
+              Add Single Choice Question
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-end">
+        <button
+          type="submit"
+          class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C] transition-colors duration-200"
+        >
+          Create Course
+        </button>
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="ml-2 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors duration-200"
+        >
+          Cancel
+        </button>
+      </div>
+    }
+  </div>
+</form>

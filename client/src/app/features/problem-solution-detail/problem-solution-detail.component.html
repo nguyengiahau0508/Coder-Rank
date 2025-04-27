@@ -1,0 +1,16 @@
+@if(solution) {
+<div class="solution-detail-container">
+
+  <app-tab-navigation [problemId]="solution.problem.id" [hasProblem]="true" [hasHistory]="true" [hasSubmit]="true"
+    [hasSolution]="true" />
+  <!-- Solution Blog Section (Trên) -->
+  <div class="solution-blog-section">
+    <app-solution-blog [solution]="solution"></app-solution-blog>
+  </div>
+
+  <!-- Solution Comments Section (Dưới) -->
+  <div class="solution-comments-section">
+    <app-comment-section (refreshComment)="onRefreshComment()" [solutionId]="solution.id" [comments]="comments()" />
+  </div>
+</div>
+}

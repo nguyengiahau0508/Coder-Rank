@@ -1,0 +1,7 @@
+<div class="comment-section">
+  <h3 class="comment-title">💬 Bình luận ({{ comments.length }})</h3>
+
+  <app-comment-box (refreshComment)="onRefresh()" [solutionId]="solutionId"></app-comment-box>
+
+  <app-comment-list (refreshComment)="onRefresh()" [comments]="comments"></app-comment-list>
+</div>

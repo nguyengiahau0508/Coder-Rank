@@ -1,0 +1,48 @@
+<div class="problem-status-container">
+  <app-tab-navigation [hasRunner]="true"></app-tab-navigation>
+  <div class="submission-main">
+    <div class="submission-header">
+      <i>📋</i>Bài Nộp
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Khi nào</th>
+          <th>Ai</th>
+          <th>Bài toán</th>
+          <th>Ngôn ngữ</th>
+          <th>Kết quả</th>
+          <th>Thời gian</th>
+          <th>Bộ nhớ</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sub of submission(); track sub.id) {
+        <tr>
+          <td>{{ sub.id }}</td>
+          <td>{{ sub.createdAt| date:'MMM d, y HH:mm' }}</td>
+          <td>{{ sub.user?.username }}</td>
+          <td>
+            <a [routerLink]="'/problems/' + sub.problem?.id" class="problem-link">
+              {{ sub.problem?.title }}
+            </a>
+          </td>
+          <td>{{ getLanguageDisplay(sub.language) }}</td>
+          <td [class]="sub.status">
+            {{ getStatusClass(sub.status)}}
+          </td>
+          <td>{{ sub.executionTime ? sub.executionTime + ' ms' : '—' }}</td>
+          <td>{{ sub.memoryUsed ? sub.memoryUsed + ' MB' : '—' }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if(meta().itemCount! > 0 && meta()){
+  <app-pagination [totalItems]="meta().itemCount!" [itemsPerPage]="meta().take!" [currentPage]="meta().page!"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+  }
+</div>

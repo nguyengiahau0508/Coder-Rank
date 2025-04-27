@@ -1,0 +1,74 @@
+<div class="min-h-screen bg-[#FFFFFF]">
+  @if (isLoading()) {
+    <div class="flex justify-center items-center h-screen">
+      <app-spinner-loading></app-spinner-loading>
+    </div>
+  } @else if (lesson()) {
+    <div class="mx-auto">
+      <div class="bg-[#67A4AC] rounded-lg p-6 mb-8">
+        <h1 class="text-3xl font-bold text-[#19223C]">{{ lesson()?.title }}</h1>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <app-html-viewer [content]="lesson()?.content || ''"></app-html-viewer>
+      </div>
+
+      @if (lesson()!.questions!.length > 0) {
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-[#19223C] mb-4">Câu Hỏi Trắc Nghiệm</h2>
+
+          @for (question of lesson()?.questions; track question.id) {
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <p class="text-lg font-medium text-[#19223C] mb-4">
+                Câu hỏi {{ question.order }}: {{ question.text }}
+                <span class="text-sm text-[#67A4AC]">
+                  ({{ question.type === 'single' ? 'Chọn một đáp án' : 'Chọn nhiều đáp án' }})
+                </span>
+              </p>
+
+              <div class="space-y-3">
+                @for (answer of question.answers; track answer.id; let aIndex = $index) {
+                  <label class="flex items-center space-x-3 cursor-pointer">
+                    <input [type]="question.type === 'single' ? 'radio' : 'checkbox'"
+                           [name]="question.type === 'single' ? 'question-' + question.id : ''"
+                           [checked]="(selectedAnswers()[question.id] || []).includes(answer.id)"
+                           (change)="onAnswerSelect(question, answer.id)" [disabled]="showResults()"
+                           class="h-5 w-5 text-[#67A4AC] focus:ring-[#67A4AC]" />
+                    <span class="text-[#19223C]">{{ answer.text }}</span>
+                  </label>
+                }
+              </div>
+
+              @if (showResults() && questionResults()[question.id] !== null) {
+                <div class="mt-4 p-3 rounded-lg" [ngClass]="{
+                  'bg-green-100 text-green-800': questionResults()[question.id],
+                  'bg-red-100 text-red-800': !questionResults()[question.id]
+                }">
+                  {{ questionResults()[question.id] ? 'Chính xác!' : 'Không chính xác. Thử lại!' }}
+                </div>
+              }
+            </div>
+          }
+
+          <div class="flex space-x-4 mt-6">
+            @if (!showResults()) {
+              <button (click)="checkAnswers()"
+                      class="bg-[#19223C] text-white px-6 py-2 rounded-lg hover:bg-[#67A4AC] transition-colors">
+                Kiểm tra câu trả lời
+              </button>
+            } @else {
+              <button (click)="resetQuiz()"
+                      class="bg-[#67A4AC] text-white px-6 py-2 rounded-lg hover:bg-[#19223C] transition-colors">
+                Thử lại
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="text-center text-[#19223C] text-xl">
+      Không tìm thấy bài học
+    </div>
+  }
+</div>

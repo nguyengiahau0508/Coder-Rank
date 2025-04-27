@@ -1,0 +1,41 @@
+<div class="header-container">
+  <!-- Tiêu đề -->
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/cr-logo-horizontal-1.svg" alt="Logo">
+    </div>
+
+    <div class="user-options">
+      @if (!user) {
+      <button (click)="onLogin()" class="login-btn">Đăng nhập</button>
+      } @else {
+      <div class="user-menu">
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827504.png" alt="Thông báo" class="icon">
+        <span class="separator">|</span>
+        <img src="{{user.avatar || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}}" alt="Ảnh đại diện"
+          class="user-avatar">
+        <a routerLink="/profile" class="name">{{user.name}}</a>
+        <span class="separator">|</span>
+        <a href="#" (click)="onLogout()" class="logout-btn">Đăng xuất</a>
+      </div>
+      }
+    </div>
+  </header>
+
+  <!-- Thanh điều hướng -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="#">TRANG CHỦ</a>
+      <a href="#">XẾP HẠNG</a>
+      <a routerLink="/contests">CUỘC THI</a>
+      <a routerLink="/problems">BỘ ĐỀ</a>
+      <a routerLink="/courses">KHÓA HỌC</a>
+      <a href="#">GIÁO DỤC</a>
+    </div>
+    <!-- Ô tìm kiếm -->
+    <div class="search-box">
+      <input type="text" placeholder="🔍">
+    </div>
+  </nav>
+</div>

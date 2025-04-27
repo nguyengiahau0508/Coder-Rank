@@ -1,0 +1,62 @@
+<div class="bg-[#E8F2F3] p-8 rounded-2xl shadow-lg text-[#19223C]">
+  <!-- Thống kê -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+    <div class="text-2xl font-bold text-[#19223C]">
+      {{ totalSubmissions }} lượt nộp trong năm {{ selectedYear }}
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center text-sm">
+      <div class="bg-[#67A4AC]/20 text-[#19223C] px-4 py-2 rounded-lg shadow-sm font-medium">
+        Tổng ngày hoạt động: <span class="font-semibold">{{ activeDays }}</span>
+      </div>
+      <div class="bg-[#67A4AC]/20 text-[#19223C] px-4 py-2 rounded-lg shadow-sm font-medium">
+        Chuỗi hoạt động dài nhất: <span class="font-semibold">{{ maxStreak }}</span>
+      </div>
+      <select class="bg-[#67A4AC] hover:bg-[#19223C] text-white font-semibold rounded-lg px-4 py-2 outline-none transition-colors duration-200"
+        [(ngModel)]="selectedYear" (change)="updateGraph()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Biểu đồ -->
+  <div class="overflow-x-auto">
+    <div class="flex gap-6 min-w-[2400px] px-2">
+      <div *ngFor="let month of months; let i = index" class="flex-1">
+        <div class="text-center text-sm font-semibold text-[#19223C] mb-2">{{ month }}</div>
+        <div class="grid grid-cols-7 gap-[6px]">
+          <div *ngFor="let day of getDaysInMonth(i)"
+               class="w-5 h-5 rounded-[4px] transition-all duration-200 hover:scale-110 hover:shadow-md"
+               [ngClass]="getDayClass(day.activity)"
+               [title]="day.date.toDateString() + ': ' + day.activity + ' lượt nộp'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Bảng chú thích -->
+  <div class="mt-8 flex justify-center">
+    <div class="flex flex-wrap gap-4 items-center text-sm font-medium text-[#1A2A44]">
+      <div class="flex items-center gap-2">
+        <div class="w-5 h-5 rounded-md bg-gray-200"></div>
+        <span>0 lượt nộp</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-5 h-5 rounded-md bg-teal-200"></div>
+        <span>1 lượt nộp</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-5 h-5 rounded-md bg-teal-400"></div>
+        <span>2 lượt nộp</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-5 h-5 rounded-md bg-teal-600"></div>
+        <span>3 lượt nộp</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-5 h-5 rounded-md bg-teal-800"></div>
+        <span>4+ lượt nộp</span>
+      </div>
+    </div>
+  </div>
+</div>

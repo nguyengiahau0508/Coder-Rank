@@ -1,0 +1,52 @@
+<div class="p-4 bg-[#FFFFFF] min-h-screen">
+  <h2 class="text-2xl font-bold text-[#19223C] mb-6">Danh Sách Khóa Học</h2>
+
+  <div class="mt-4 mb-4 ">
+    <div class="flex flex-wrap gap-6 items-center">
+      <div class="flex items-center space-x-2">
+        <label for="takeAmount" class="text-sm font-medium text-gray-700 whitespace-nowrap">Lấy:</label>
+        <select id="takeAmount" [(ngModel)]="meta().take" (change)="onFilterChange()"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#67A4AC] focus:border-[#67A4AC] p-2.5">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="20">20</option>
+          <option [value]="50">50</option>
+          <option [value]="100">100</option>
+        </select>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <label for="search" class="text-sm font-medium text-gray-700 whitespace-nowrap">Tìm kiếm:</label>
+        <input type="text" id="search" [(ngModel)]="searchTerm" (input)="onFilterChange()"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#67A4AC] focus:border-[#67A4AC] p-2.5"
+          placeholder="Tìm kiếm theo đầu vào hoặc đầu ra" />
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @if (isLoading()) {
+      <app-spinner-loading></app-spinner-loading>
+    } @else {
+      @for (course of courses(); track course.id) {
+        <div class="cursor-pointer bg-[#67A4AC] text-white rounded-2xl overflow-hidden shadow-md transition transform hover:scale-105" (click)="onDetail(course.id)">
+          @if (course.imageUrl) {
+            <img [src]="course.imageUrl" alt="Hình ảnh khóa học" class="w-full h-40 object-cover" />
+          } @else {
+            <div class="w-full h-40 bg-[#19223C] flex items-center justify-center text-sm text-white opacity-80">
+              Không có ảnh
+            </div>
+          }
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">{{ course.title }}</h3>
+          </div>
+        </div>
+      }
+    }
+  </div>
+    @if(courses().length < meta().itemCount!){
+      <app-pagination [totalItems]="meta().itemCount!" [itemsPerPage]="meta().take!"
+        [currentPage]="meta().page!" (pageChange)="onPageChange($event)">
+      </app-pagination>
+    }
+</div>

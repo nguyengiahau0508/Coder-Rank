@@ -1,0 +1,66 @@
+<!-- Header -->
+<div class="flex justify-between items-center p-4 bg-[#19223C] text-white rounded-t-md">
+  <h1 class="text-2xl font-bold">Edit Course</h1>
+  <button (click)="onAddLesson()"
+          class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C] transition-colors duration-200">
+    Lesson List
+  </button>
+</div>
+
+<!-- Form -->
+<form (submit)="onSubmit()" class="bg-white">
+  <div class="p-4 space-y-6">
+    @if(isLoading()) {
+      <app-loading></app-loading>
+    } @else {
+      <!-- Contest Image -->
+      <div class="mb-4">
+        <label for="contestImage" class="block text-sm font-medium text-gray-700 mb-1">Contest Image:
+          <input type="file" id="courseImage" (change)="onFileSelected($event)" accept="image/*"
+                 class="p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]" />
+        </label>
+
+        @if (imagePreview()) {
+          <div class="mt-2 flex items-center gap-2">
+            <img [src]="imagePreview()" alt="Contest Image Preview"
+                 class="w-32 object-cover rounded-md border border-gray-200">
+            <button (click)="removeImage()" class="cursor-pointer text-sm text-red-600 hover:text-red-800" type="button">
+              Remove
+            </button>
+          </div>
+        }
+      </div>
+
+      <!-- Problem Title -->
+      <div>
+        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+        <input type="text" id="title" [(ngModel)]="courses()!.title" name="title" required
+               class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]" />
+      </div>
+
+      <!-- Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Problem Difficulty -->
+      </div>
+
+      <!-- Problem Description -->
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+        <app-text-editor [htmlInitialData]="courses()!.description || ''"
+                         (htmlChange)="onDescriptionChange($event)"></app-text-editor>
+      </div>
+    }
+
+    <!-- Submit Button -->
+    <div class="flex justify-end">
+      <button type="submit"
+              class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C] transition-colors duration-200">
+        Save
+      </button>
+      <button type="button" (click)="onCancel()"
+              class="ml-2 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors duration-200">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

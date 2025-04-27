@@ -1,0 +1,47 @@
+<div class="comment">
+  <div class="comment-header">
+    <img [src]="comment.user!.avatar" alt="Ảnh đại diện người dùng" class="comment-avatar">
+    <div class="comment-info">
+      <div class="header-top">
+        <span class="name">{{ comment.user!.name }}</span>
+        <span class="date">{{ comment.createdAt | date: 'mediumDate' }}</span>
+      </div>
+
+      @if (comment.parentComment) {
+      <span class="reply-to">↪ Trả lời cho {{ comment.parentComment.user!.name }}</span>
+      }
+    </div>
+  </div>
+
+  <p markdown ngPreserveWhitespaces class="comment-text">
+    {{ comment.content }}
+  </p>
+
+  <div class="comment-footer">
+    <span class="votes">👍 {{ comment.upvotes }}</span>
+
+    @if (comment.replies.length > 0) {
+    <span class="toggle-replies-btn" (click)="toggleReplies()">
+      {{ showReplies ? 'Ẩn phản hồi' : 'Hiển thị ' + comment.replies.length + ' phản hồi' }}
+    </span>
+    }
+
+    <span class="reply-btn" (click)="toggleReplyBox()">💬 Phản hồi</span>
+    @if(user && user.id == comment.user!.id){
+    <span class="reply-btn" (click)="onDeleteComment()">🗑️ Xóa</span>
+    }
+  </div>
+
+  @if (showReplies && children().length > 0) {
+  <div class="reply-comments">
+    @for (child of children(); track child.id) {
+    <app-comment-item [comment]="child"></app-comment-item>
+    }
+  </div>
+  }
+
+  @if (showReplyBox) {
+  <app-comment-box (refreshReplyComment)="onRefreshComment()" [parentId]="comment.id!"
+     />
+  }
+</div>

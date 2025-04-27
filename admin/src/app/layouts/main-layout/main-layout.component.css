@@ -1,0 +1,37 @@
+:host {
+  --dark-blue: #19223C;
+  --light-blue: #67A4AC;
+  --white: #FFFFFF;
+}
+
+.bg-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.text-dark-blue {
+  color: var(--dark-blue);
+}
+
+.text-light-blue {
+  color: var(--light-blue);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}

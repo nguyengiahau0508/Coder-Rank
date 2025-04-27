@@ -1,0 +1,103 @@
+.problem-list {
+  background: #FFFFFF;
+  /* Nền trắng */
+  border: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề */
+.problem-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Bảng */
+.problem-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.problem-table thead {
+  background: #67A4AC;
+  /* Xanh nhạt */
+  color: #FFFFFF;
+  /* Chữ trắng */
+}
+
+.problem-table th,
+.problem-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.problem-table th {
+  font-weight: bold;
+}
+
+.problem-table tbody tr:hover {
+  background: rgba(103, 164, 172, 0.2);
+  /* Hover màu xanh nhạt */
+}
+
+/* Liên kết */
+.problem-table a {
+  text-decoration: none;
+  color: #19223C;
+  /* Xanh đậm */
+  font-weight: bold;
+}
+
+.problem-table a:hover {
+  text-decoration: underline;
+}
+
+/* Cột số bài đã giải */
+.solved-count {
+  font-weight: bold;
+  color: #19223C;
+  cursor: pointer;
+  /* Xanh đậm */
+}
+
+/* Cột độ khó chung */
+.difficulty {
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: capitalize;
+  /* Viết hoa chữ cái đầu */
+}
+
+/* Mức độ dễ */
+.difficulty.easy {
+  /* Xanh nhạt */
+  color: #155724;
+  /* Xanh đậm */
+}
+
+/* Mức độ trung bình */
+.difficulty.medium {
+  /* Vàng nhạt */
+  color: #856404;
+  /* Nâu đậm */
+}
+
+/* Mức độ khó */
+.difficulty.hard {
+  /* Đỏ nhạt */
+  color: #721C24;
+  /* Đỏ đậm */
+}

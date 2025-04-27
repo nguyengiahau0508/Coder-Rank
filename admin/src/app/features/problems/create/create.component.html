@@ -1,0 +1,159 @@
+
+
+<!-- Header -->
+<div class="flex justify-between items-center p-4 bg-[#19223C] text-white rounded-t-md">
+  <h1 class="text-2xl font-bold">Create Problem</h1>
+</div>
+
+
+<!-- Form -->
+<form (submit)="onSubmit()" class="bg-white">
+  <div class="p-4 space-y-6">
+@if(isLoading()){
+  <app-loading></app-loading>
+}@else{
+<!-- Problem Title -->
+    <div>
+      <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="problem().title"
+        name="title"
+        required
+        class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+      />
+    </div>
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Problem Difficulty -->
+      <div>
+        <label for="difficulty" class="block text-sm font-medium text-gray-700 mb-1">Difficulty</label>
+        <select
+          id="difficulty"
+          [(ngModel)]="problem().difficulty"
+          name="difficulty"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <!-- Problem Time Limit -->
+      <div>
+        <label for="timeLimit" class="block text-sm font-medium text-gray-700 mb-1">Time Limit (ms)</label>
+        <input
+          type="number"
+          id="timeLimit"
+          [(ngModel)]="problem().timeLimit"
+          name="timeLimit"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+        />
+      </div>
+
+      <!-- Problem Memory Limit -->
+      <div>
+        <label for="memoryLimit" class="block text-sm font-medium text-gray-700 mb-1">Memory Limit (MB)</label>
+        <input
+          type="number"
+          id="memoryLimit"
+          [(ngModel)]="problem().memoryLimit"
+          name="memoryLimit"
+          required
+          class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+        />
+      </div>
+    </div>
+
+    <!-- Problem Description -->
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+      <app-text-editor (htmlChange)="onDescriptionChange($event)" ></app-text-editor>
+      <!--<app-editor (htmlContent)="onDescriptionChange($event)" [editor]="descriptionEditor"></app-editor>-->
+
+    </div>
+
+    <!-- Problem Notes -->
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+      <app-text-editor (htmlChange)="onNoteChange($event)" ></app-text-editor>
+    </div>
+
+    <!-- Problem Tags -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Tags</label>
+      <!-- Selected Tags Display -->
+      <div class="flex flex-wrap gap-2 mb-2 min-h-[2rem] p-2 border border-gray-300 rounded-md">
+        @if (problem().tags!.length > 0) {
+          @for (tag of problem().tags; track tag.id) {
+            <span class="inline-flex items-center px-2 py-1 rounded-full text-sm bg-[#67A4AC] bg-opacity-10 text-[#19223C]">
+              {{tag.name}}
+              <button
+                type="button"
+                (click)="removeTag(tag)"
+                class="ml-2 text-[#19223C] hover:text-[#67A4AC]"
+              >
+                ×
+              </button>
+            </span>
+          }
+        } @else {
+          <span class="text-gray-500 text-sm">No tags selected</span>
+        }
+      </div>
+
+      <!-- Tag Selection Dropdown -->
+      <select
+        multiple
+        (change)="addTags($event)"
+        class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#67A4AC] focus:border-[#67A4AC]"
+      >
+        @for (tag of tags(); track tag.id) {
+          <option
+            [value]="tag.id"
+            [disabled]="isTagSelected(tag.id)"
+          >
+            {{tag.name}}
+          </option>
+        }
+      </select>
+    </div>
+
+    <!-- Problem Is Public Checkbox -->
+    <div class="flex items-center">
+      <input
+        type="checkbox"
+        id="isPublic"
+        [(ngModel)]="problem().isPublic"
+        name="isPublic"
+        class="h-4 w-4 text-[#67A4AC] border-gray-300 rounded focus:ring-[#67A4AC]"
+      />
+      <label for="isPublic" class="ml-2 text-sm font-medium text-gray-700">Is Public</label>
+    </div>
+
+
+  }
+        <!-- Submit Button -->
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="px-4 py-2 bg-[#67A4AC] text-white rounded-md hover:bg-[#19223C] transition-colors duration-200"
+      >
+        Create Problem
+      </button>
+
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="ml-2 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors duration-200"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

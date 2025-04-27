@@ -1,0 +1,61 @@
+.markdown-editor-container {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+}
+
+markdown-toolbar {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 8px;
+  background-color: #67A4AC;
+  border-radius: 5px;
+}
+
+markdown-toolbar .btn {
+  background-color: #19223C;
+  color: #FFFFFF;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+markdown-toolbar .btn:hover {
+  background-color: #445577;
+}
+
+.text-editor {
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  /* Giới hạn chiều cao để hiển thị thanh cuộn khi nội dung vượt quá */
+  padding: 10px;
+  border: 2px solid #19223C;
+  border-radius: 5px;
+  background-color: #E5E9F0;
+  font-size: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  /* Hiển thị thanh cuộn khi nội dung tràn */
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/* Tùy chỉnh thanh cuộn (scrollbar) */
+.text-editor::-webkit-scrollbar {
+  width: 6px;
+  /* Độ rộng thanh cuộn */
+}
+
+.text-editor::-webkit-scrollbar-thumb {
+  background: #19223C;
+  /* Màu của thanh cuộn */
+  border-radius: 4px;
+}
+
+.text-editor::-webkit-scrollbar-track {
+  background: #F0F8F9;
+  /* Màu nền của vùng cuộn */
+}

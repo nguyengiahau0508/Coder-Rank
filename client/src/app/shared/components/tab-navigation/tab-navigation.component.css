@@ -1,0 +1,24 @@
+/* Thanh menu */
+.action {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  margin-bottom: 15px;
+}
+
+.action button {
+  background-color: #19223C;
+  /* Màu xanh đậm */
+  color: #FFFFFF;
+  border: none;
+  padding: 4px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 7;
+  transition: background 0.3s ease;
+}
+
+.action button:hover {
+  background-color: #67A4AC;
+  /* Màu xanh nhạt */
+}

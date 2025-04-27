@@ -1,0 +1,110 @@
+.ranking-container {
+  background: #E5E9F0;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #67A4AC;
+  border-radius: 8px;
+}
+
+.ranking-container h2 {
+  color: #19223C;
+  /* Xanh đậm */
+  margin-bottom: 20px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Xanh nhạt */
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+.rank {
+  font-size: 18px;
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+  width: 40px;
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin-right: 10px;
+  background-color: #19223C;
+  /* Xanh đậm */
+}
+
+.default-icon {
+  font-size: 14px;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.username {
+  font-weight: bold;
+  color: #19223C;
+}
+
+.country-flag {
+  font-size: 16px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: black;
+  /* Trắng */
+}
+
+.stats span {
+  font-size: 14px;
+}
+
+.view-more {
+  background-color: #19223C;
+  /* Xanh đậm */
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+}
+
+.view-more:hover {
+  background-color: #0F172A;
+}
+
+p {
+  color: #19223C;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+/* Căn giữa callback-container trên toàn màn hình */
+.callback-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Chiều cao toàn màn hình */
+  background-color: #FFFFFF;
+  /* Màu nền trắng */
+}
+
+/* Hiệu ứng loading */
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #67A4AC;
+  /* Màu xanh nhạt */
+  border-top: 6px solid #19223C;
+  /* Màu xanh đậm */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Tạo hiệu ứng xoay */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

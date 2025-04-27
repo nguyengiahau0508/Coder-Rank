@@ -1,0 +1,53 @@
+.pagination {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+/* Nút phân trang nhỏ hơn */
+.pagination button {
+  background: #FFFFFF;
+  /* Nền trắng */
+  color: #19223C;
+  /* Chữ xanh đậm */
+  border: 1px solid #67A4AC;
+  /* Viền xanh nhạt */
+  padding: 5px 8px;
+  /* Kích thước nhỏ hơn */
+  border-radius: 4px;
+  font-size: 12px;
+  /* Chữ nhỏ hơn */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover */
+.pagination button:hover {
+  background: #67A4AC;
+  color: #FFFFFF;
+}
+
+/* Active (trang hiện tại) */
+.pagination button.active {
+  background: #19223C;
+  color: #FFFFFF;
+  border-color: #19223C;
+}
+
+/* Nút mũi tên nhỏ hơn */
+.pagination button:first-child,
+.pagination button:last-child {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+/* Nút bị disabled */
+.pagination button:disabled {
+  background: #ccc;
+  color: #666;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

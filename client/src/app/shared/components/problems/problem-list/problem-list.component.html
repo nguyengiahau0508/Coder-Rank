@@ -1,0 +1,29 @@
+<div class="problem-list">
+  <div class="problem-header">
+    <i>📋</i> Bài Toán
+  </div>
+
+  <table class="problem-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tên</th>
+        <th>⚡</th>
+        <th>✔</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(problem of problems;track problem.id){
+      <tr>
+        <td><a href="#">{{problem.id}}</a></td>
+        <td>
+          <a [routerLink]="'/problems/' + problem.id">{{ problem.title }}</a>
+          <app-problem-tag [tags]="problem.tags" />
+        </td>
+        <td class="difficulty" [ngClass]="problem.difficulty">{{problem.difficulty}}</td>
+        <td class="solved-count">🔵 x<span>{{getSubmissionCount(problem.id)}}</span></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

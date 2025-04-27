@@ -1,0 +1,162 @@
+/* Định dạng thẻ Submission Card */
+.submission-card {
+  background: #FFFFFF;
+  /* Màu trắng */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Tiêu đề */
+.submission-card h2 {
+  color: #19223C;
+  /* Màu xanh đậm */
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Ngày tạo bài */
+.date {
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* Nhóm badge */
+.badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Badge chung */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badge.pending {
+  color: white;
+  background-color: #FFA500;
+}
+
+/* Orange */
+.badge.accepted {
+  background-color: #28A745;
+  color: white;
+}
+
+/* Green */
+.badge.wrong_answer {
+  background-color: #DC3545;
+  color: white;
+}
+
+/* Red */
+.badge.time_limit_exceeded {
+  background-color: #FF7733;
+  color: white;
+}
+
+/* Dark orange */
+.badge.memory_limit_exceeded {
+  background-color: #FF33CC;
+  color: white;
+}
+
+/* Pink */
+.badge.runtime_error {
+  background-color: #6C757D;
+  color: white;
+}
+
+/* Gray */
+.badge.compilation_error {
+  background-color: #800080;
+  color: white;
+}
+
+/* Badge ngôn ngữ */
+.badge.language {
+  background: #67A4AC;
+  /* Màu xanh nhạt */
+  color: white;
+}
+
+/* Thông tin chi tiết */
+.submission-card p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Code Block */
+pre {
+  background: #f8f9fa;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  /* Màu xanh đậm */
+  font-size: 14px;
+}
+
+/* Container chứa danh sách test cases */
+.testcases {
+  background: #FFFFFF;
+  max-width: 600px;
+}
+
+/* Tiêu đề */
+.testcases h3 {
+  color: #19223C;
+  /* Màu xanh đậm */
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Danh sách Test Case */
+.testcases ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Mỗi test case */
+.testcases li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Định dạng ID của Test Case */
+.testcase-id {
+  font-weight: bold;
+  color: #19223C;
+}
+
+
+/* Định dạng thông báo lỗi */
+.error-message {
+  background: #FFD2D2;
+  /* Màu đỏ nhạt */
+  color: #D8000C;
+  /* Màu chữ đỏ đậm */
+  border: 1px solid #D8000C;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 15px 0;
+  text-align: left;
+  font-weight: bold;
+}

@@ -1,0 +1,10 @@
+<div class="app-container">
+  <app-header (login)="onOpenLogin()" />
+  <div class="main-container">
+    @if(isOpenningLogin){
+    <app-login (close)="onCloseLogin()" />
+    }
+    <router-outlet />
+  </div>
+  <app-footer />
+</div>

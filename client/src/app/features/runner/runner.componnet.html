@@ -1,0 +1,44 @@
+<div class="coderunner-container">
+  @if(problem()){
+  <app-tab-navigation [problemId]="problem()!.id" [hasProblem]="true" [hasSolution]="true" [hasHistory]="true" />
+  } @else {
+  <app-tab-navigation />
+  }
+  <div class="coderunner-main">
+    <div class="coderunner-left">
+      <div class="code-editor">
+        <ngs-code-editor class="code-editor-main" [theme]="theme" [codeModel]="model" [options]="options"
+          (valueChanged)="onCodeChanged($event)">
+        </ngs-code-editor>
+      </div>
+
+      <div class="language-select">
+        <label for="language">Ngôn ngữ:</label>
+        <select id="language" [(ngModel)]="selectedLanguage" (change)="onSelectedLanguage(selectedLanguage)">
+          <option value="cpp">C++</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="typescript">Typescript</option>
+        </select>
+      </div>
+
+      <div class="coderunner-action">
+        <button class="run-btn" (click)="runCode()">Chạy</button>
+        @if(problem()){
+        @if(isSubmittingCode) {
+        <button class="submit-btn" disabled>
+          <span class="spinner"></span> Đang nộp...
+        </button>
+        } @else {
+        <button class="submit-btn" (click)="submitCode()">Nộp</button>
+        }
+        }
+      </div>
+    </div>
+
+    <div class="coderunner-right">
+      <app-testcases-input [isLoading]="isLoading" [resultTest]="testcasesResponseData"
+        (onChangeTestcase)="onTestcaseChanged($event)" />
+    </div>
+  </div>
+</div>

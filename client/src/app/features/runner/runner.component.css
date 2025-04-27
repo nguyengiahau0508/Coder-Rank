@@ -1,0 +1,158 @@
+/* Container chính */
+.coderunner-container {
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  /* Màu nền trắng */
+  border-radius: 8px;
+}
+
+/* Bố cục chính */
+.coderunner-main {
+  display: flex;
+  gap: 20px;
+}
+
+/* Bên trái: Code Editor + Chọn ngôn ngữ + Nút Run */
+.coderunner-left {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Code Editor */
+.code-editor {
+  background: #F8FAFC;
+  border-radius: 6px;
+  padding: 1px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  border: 2px solid #67A4AC;
+}
+
+/* Chọn ngôn ngữ */
+.language-select label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #19223C;
+  /* Màu xanh đậm */
+}
+
+.language-select select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 2px solid #67A4AC;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  color: #19223C;
+}
+
+/* Container chứa các nút */
+.coderunner-action {
+  display: flex;
+  justify-content: right;
+  /* Căn giữa nút */
+  gap: 10px;
+  /* Khoảng cách giữa các nút */
+  margin-top: 15px;
+}
+
+/* Style chung cho nút */
+.coderunner-action button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Nút Run Code */
+.run-btn {
+  background-color: #67A4AC;
+  /* Xanh nhạt */
+  color: #FFFFFF;
+}
+
+.run-btn:hover {
+  background-color: #4D8A91;
+  /* Màu tối hơn khi hover */
+}
+
+
+/* Nút Submit */
+.submit-btn {
+  background: #19223C;
+  /* Màu xanh nhạt */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #19223C;
+  /* Màu xanh đậm */
+}
+
+/* Trạng thái khi submit */
+.submit-btn:disabled {
+  background: #19223C;
+  /* Giữ màu xanh đậm */
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Biểu tượng loading */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes cho hiệu ứng xoay */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Bên phải: Input & Output */
+.coderunner-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 250px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coderunner-main {
+    flex-direction: column;
+  }
+}
+
+.code-editor-main {
+  height: 500px;
+}

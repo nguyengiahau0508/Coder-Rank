@@ -1,0 +1,240 @@
+.testcase-container {
+  background: #FFFFFF;
+  /* Nền trắng */
+  border: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.testcase {
+  background: #67A4AC;
+  /* Nền xanh nhạt */
+  color: #FFFFFF;
+  /* Chữ trắng */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  /* Đảm bảo không bị tràn nội dung */
+}
+
+/* Test case header */
+.testcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #67A4AC;
+  /* Màu xanh nhạt */
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.testcase-header:hover {
+  background-color: #4D8A91;
+  /* Màu xanh đậm khi hover */
+}
+
+/* Biểu tượng mở rộng/thu gọn */
+.testcase-header span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Trạng thái PASS / FAIL */
+.status-pass {
+  color: #28A745;
+  /* Xanh lá */
+  font-weight: bold;
+}
+
+.status-fail {
+  color: #DC3545;
+  /* Đỏ */
+  font-weight: bold;
+}
+
+/* Hiệu ứng loading */
+.loading-icon {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #FFC107;
+  /* Viền vàng */
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Trạng thái PASS */
+.status-pass {
+  color: #28A745;
+  /* Xanh lá */
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Trạng thái FAIL */
+.status-fail {
+  color: #DC3545;
+  /* Đỏ */
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Nút xóa */
+.remove-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s ease-in-out;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #19223C;
+}
+
+
+
+/* Label */
+.testcase label {
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+  display: block;
+  margin-top: 10px;
+}
+
+.testcase textarea {
+  width: 100%;
+  /* Đảm bảo chiều rộng không bị tràn */
+  padding: 8px;
+  border: 1px solid #67A4AC;
+  /* Viền xanh nhạt */
+  border-radius: 5px;
+  background: #FFFFFF;
+  /* Nền trắng */
+  color: #19223C;
+  /* Chữ xanh đậm */
+  font-size: 14px;
+  min-height: 60px;
+  /* Tạo độ cao tối thiểu */
+  resize: vertical;
+  /* Cho phép kéo giãn */
+  font-family: inherit;
+  box-sizing: border-box;
+  /* Đảm bảo padding không làm tràn phần tử */
+}
+
+
+
+.testcase textarea:focus {
+  border-color: #19223C;
+  /* Viền xanh đậm khi focus */
+}
+
+/* Nút thêm test case */
+.testcase-container button {
+  background: #19223C;
+  /* Nền xanh đậm */
+  color: #FFFFFF;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.testcase-container button:hover {
+  background: #0F172A;
+}
+
+/* Màu sắc cơ bản cho từng trạng thái */
+.status-pending {
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-passed {
+  color: #fff;
+  background-color: #28a745;
+  /* Xanh lá cho thành công */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-failed {
+  color: #fff;
+  background-color: #dc3545;
+  /* Đỏ cho thất bại */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-time-exceeded {
+  color: #fff;
+  background-color: #ff851b;
+  /* Cam cho vượt thời gian */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-memory-exceeded {
+  color: #fff;
+  background-color: #ff4136;
+  /* Đỏ nhạt cho vượt bộ nhớ */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-runtime-error {
+  color: #fff;
+  background-color: #85144b;
+  /* Tím đậm cho lỗi runtime */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-compilation-error {
+  color: #fff;
+  background-color: #b10dc9;
+  /* Tím nhạt cho lỗi biên dịch */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status-default {
+  color: #333;
+  background-color: #ddd;
+  padding: 4px 8px;
+  border-radius: 4px;
+}

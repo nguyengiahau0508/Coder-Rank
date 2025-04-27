@@ -1,0 +1,60 @@
+/* ====== Container chính ====== */
+.contest-container {
+  background-color: #FFFFFF;
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ====== Next Contests ====== */
+.next-contests {
+  background: #F0F8FF;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ====== Featured Contests ====== */
+.featured-contests {
+  background: linear-gradient(135deg, #67A4AC, #19223C);
+  padding: 20px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* ====== Contest List & Ranking List ====== */
+.main-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Contest List - Chiếm nhiều không gian hơn */
+.contest-list {
+  flex: 2;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+}
+
+/* Ranking List - Chiếm ít không gian hơn */
+.ranking-list {
+  flex: 1;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+}
+
+/* Responsive - Chuyển về cột khi màn hình nhỏ */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .contest-list,
+  .ranking-list {
+    flex: none;
+    width: 100%;
+  }
+}

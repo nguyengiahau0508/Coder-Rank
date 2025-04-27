@@ -1,0 +1,21 @@
+.problems-container {
+  /* Khoảng cách giữa hai phần */
+  padding: 20px;
+}
+
+.problem-list-container {
+  flex: 3;
+  /* Chiếm nhiều không gian hơn */
+}
+
+.problem-list-main {
+  display: flex;
+  gap: 20px;
+}
+
+.problem-filter-container {
+  flex: 1;
+  /* Chiếm ít không gian hơn */
+  min-width: 250px;
+  /* Đảm bảo không quá nhỏ */
+}

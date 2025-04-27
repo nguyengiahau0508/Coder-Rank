@@ -1,0 +1,20 @@
+<div class="action">
+  @if (hasProblem) {
+  <button [routerLink]="'/problems/' + problemId" type="button">BÀI TOÁN</button>
+  }
+  @if (hasSubmit) {
+  <button [routerLink]="'/problems/' + problemId + '/submit'" type="button">NỘP BÀI</button>
+  }
+  @if (hasRunner) {
+  <button routerLink="/runner" type="button">TRÌNH CHẠY</button>
+  }
+  @if (hasStatus) {
+  <button routerLink="/problems/status" type="button">TRẠNG THÁI</button>
+  }
+  @if (hasHistory && user()) {
+  <button [routerLink]="'/problems/' + problemId + '/history'" type="button">LỊCH SỬ</button>
+  }
+  @if (hasSolution) {
+  <button [routerLink]="'/problems/' + problemId + '/solutions'" type=" button">GIẢI PHÁP</button>
+  }
+</div>

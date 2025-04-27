@@ -1,0 +1,199 @@
+.header-container {
+  padding: 20px;
+  background: #FFFFFF;
+  /* Nền trắng */
+}
+
+/* Header chính */
+.header {
+  background: #FFFFFF;
+  /* Nền trắng */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #67A4AC;
+  object-fit: cover;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+  margin-right: 5px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+}
+
+.logo-text span {
+  color: #67A4AC;
+  /* Xanh nhạt */
+}
+
+/* User Options */
+/* Container tổng */
+.user-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+}
+
+/* Nút đăng nhập */
+.login-btn {
+  background: #67A4AC;
+  /* Xanh nhạt */
+  color: #FFFFFF;
+  font-weight: bold;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+  background: #519397;
+  /* Màu tối hơn khi hover */
+}
+
+/* User menu */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon thông báo */
+.icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* Đường phân cách */
+.separator {
+  color: #19223C;
+  /* Xanh đậm */
+  font-weight: bold;
+}
+
+/* Tên người dùng */
+.name {
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+  text-decoration: none;
+}
+
+.name:hover {
+  color: #67A4AC;
+  /* Xanh nhạt */
+}
+
+/* Nút Logout */
+.logout-btn {
+  color: #DC3545;
+  /* Màu đỏ */
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  color: #A71D2A;
+  /* Đỏ đậm hơn khi hover */
+}
+
+/* Thanh Navigation */
+.nav-bar {
+  background: #FFFFFF;
+  /* Nền trắng */
+  padding: 10px;
+  border-bottom: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #19223C;
+  /* Xanh đậm */
+  font-weight: bold;
+  padding-bottom: 3px;
+  position: relative;
+}
+
+/* Hiệu ứng gạch chân */
+.nav-links a.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #67A4AC;
+  /* Xanh nhạt */
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: #67A4AC;
+  /* Xanh nhạt */
+}
+
+/* Search Box */
+.search-box {
+  border: 1px solid #67A4AC;
+  /* Xanh nhạt */
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  /* Nền trắng */
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: #19223C;
+  /* Xanh đậm */
+}
+
+.search-box img {
+  width: 16px;
+  margin-left: 5px;
+}

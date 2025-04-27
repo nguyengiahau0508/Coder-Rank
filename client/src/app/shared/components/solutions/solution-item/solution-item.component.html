@@ -1,0 +1,25 @@
+<div class="post-card" [routerLink]="'' + solution.id">
+  <div class="post-header">
+    <img class="user-avatar" src="{{solution.user!.avatar }}" alt="Ảnh đại diện người dùng" />
+    <div class="user-info">
+      <span class="username">{{solution.user!.name }}</span>
+      <span class="status">• Mở</span>
+    </div>
+  </div>
+
+  <p class="post-title">
+    {{solution.title}}
+  </p>
+
+  <div class="post-tags">
+    @for(tag of solution.tags ;track tag.id){
+    <span class="tag">{{tag.name}}</span>
+    }
+  </div>
+
+  <div class="post-stats">
+    <span>👍 {{solution.votes}}</span>
+    <span>👀 {{solution.views}}</span>
+    <span>💬 248</span>
+  </div>
+</div>

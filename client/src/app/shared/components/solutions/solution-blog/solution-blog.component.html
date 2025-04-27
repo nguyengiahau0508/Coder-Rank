@@ -1,0 +1,22 @@
+<div class="article-container">
+  <h1 class="article-title">{{solution.title}}</h1>
+
+  <div class="author-section">
+    <img src="{{solution.user!.avatar}}" alt="Ảnh đại diện tác giả" class="author-avatar">
+    <div class="author-info">
+      <span class="author-name">{{solution.user!.name}}</span>
+      <span class="author-meta"> {{solution.views}} 👀 | 📅 {{solution.createdAt |date}}</span>
+    </div>
+  </div>
+
+  <div class="tags">
+    @for(tag of solution.tags;track tag.id){
+    <span class="tag">{{tag.name}}</span>
+    }
+  </div>
+
+  <div class="article-content">
+    <markdown class="markdown-preview-content" clipboard mermaid katex emoji lineNumbers lineHighlight
+      ngPreserveWhitespaces [data]="solution.content"> </markdown>
+  </div>
+</div>

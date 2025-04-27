@@ -1,0 +1,73 @@
+/* Container chính */
+.submit-container {
+  background: #FFFFFF;
+  /* Nền trắng */
+  border: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+  /* Điều chỉnh kích thước */
+}
+
+/* Tiêu đề */
+.submit-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #19223C;
+  /* Màu xanh đậm */
+  margin-bottom: 15px;
+}
+
+/* Nhóm nhập liệu */
+.submit-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.submit-group label {
+  font-weight: bold;
+  color: #19223C;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Dropdown */
+.submit-group select,
+.submit-group input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  color: #19223C;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-group select:focus,
+.submit-group input[type="file"]:focus {
+  border-color: #19223C;
+  outline: none;
+}
+
+/* Nút Submit */
+.submit-btn {
+  background: #67A4AC;
+  /* Màu xanh nhạt */
+  color: #FFFFFF;
+  /* Chữ trắng */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #19223C;
+  /* Đổi sang xanh đậm */
+}

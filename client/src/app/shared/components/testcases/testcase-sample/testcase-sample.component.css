@@ -1,0 +1,63 @@
+/* Container từng Test Case */
+.testcase-container {
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #67A4AC;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Input và Output */
+.testcase-input,
+.testcase-output {
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #F8FAFC;
+  border-left: 3px solid #67A4AC;
+}
+
+/* Header cho Input & Output (chứa tiêu đề + nút copy) */
+.testcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tiêu đề Input/Output */
+.testcase-input h3,
+.testcase-output h3 {
+  font-size: 16px;
+  color: #19223C;
+  /* Màu xanh đậm */
+  margin-bottom: 5px;
+}
+
+/* Nội dung Input/Output */
+.testcase-input pre,
+.testcase-output pre {
+  background-color: #EFF3F6;
+  padding: 6px;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Nút Copy */
+.copy-btn {
+  background-color: #67A4AC;
+  color: #FFFFFF;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+  background-color: #19223C;
+}

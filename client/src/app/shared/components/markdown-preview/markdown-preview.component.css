@@ -1,0 +1,30 @@
+.markdown-preview-container {
+  width: 100%;
+  max-height: 600px;
+  /* Giới hạn chiều cao để tạo thanh cuộn khi nội dung vượt quá */
+  padding: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+
+  /* Tạo thanh cuộn khi nội dung tràn */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Tùy chỉnh thanh cuộn */
+.markdown-preview-container::-webkit-scrollbar {
+  width: 8px;
+  /* Độ rộng thanh cuộn */
+}
+
+.markdown-preview-container::-webkit-scrollbar-thumb {
+  background: #F5F7FA;
+  /* Màu của thanh cuộn */
+  border-radius: 4px;
+}
+
+.markdown-preview-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Màu nền vùng cuộn */
+}
+

@@ -1,0 +1,81 @@
+/* Card tổng thể cho bài viết */
+.article-container {
+  background-color: #FFFFFF;
+  /* Nền trắng */
+  color: #19223C;
+  /* Màu chữ chính */
+  border-radius: 8px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  /* Hiệu ứng đổ bóng nhẹ */
+  border: 1px solid #E0E0E0;
+  /* Viền nhẹ */
+}
+
+/* Tiêu đề bài viết */
+.article-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #19223C;
+}
+
+/* Header chứa avatar và thông tin tác giả */
+.author-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Avatar của tác giả */
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #67A4AC;
+  object-fit: cover;
+}
+
+/* Thông tin tác giả */
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #19223C;
+  font-size: 14px;
+}
+
+.author-meta {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Danh sách tags */
+.tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tag {
+  background-color: #67A4AC;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Nội dung bài viết */
+.article-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  padding-left: 10px;
+}

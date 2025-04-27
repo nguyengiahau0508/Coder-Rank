@@ -1,0 +1,47 @@
+/* Hàng của bài toán */
+.problem-row {
+  transition: background 0.2s ease-in-out;
+}
+
+/* Hover hiệu ứng */
+.problem-row:hover {
+  background: #f0f8ff; /* Màu xanh nhạt khi di chuột vào */
+}
+
+/* Cột ID */
+.problem-row td:first-child a {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.problem-row td:first-child a:hover {
+  text-decoration: underline;
+}
+
+/* Cột tên bài toán */
+.problem-row td:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Định dạng thẻ tag */
+.problem-row app-problem-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+/* Cột icon */
+.problem-row td.icon {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Cột solved count */
+.problem-row td.solved-count {
+  text-align: center;
+  font-weight: bold;
+  color: #4caf50;
+}
+

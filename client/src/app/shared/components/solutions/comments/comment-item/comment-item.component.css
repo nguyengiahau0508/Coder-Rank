@@ -1,0 +1,101 @@
+/* 🌟 Comment container */
+.comment {
+  padding: 15px;
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* 🏷️ Comment Header */
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.comment-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 💬 Tên người comment */
+.header-top {
+  display: flex;
+  gap: 10px;
+}
+
+.name {
+  font-weight: bold;
+  color: #19223C;
+}
+
+.date {
+  font-size: 12px;
+  color: #67A4AC;
+}
+
+/* 🔄 Tên người được trả lời */
+.reply-to {
+  font-size: 12px;
+  color: #67A4AC;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* 📝 Nội dung comment */
+.comment-text {
+  font-size: 14px;
+  color: #19223C;
+  margin-bottom: 10px;
+}
+
+/* 🔽 Comment Footer */
+.comment-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* 👍 Upvote */
+.votes {
+  color: #19223C;
+  font-weight: bold;
+}
+
+/* 🔽 Toggle Replies */
+.toggle-replies-btn {
+  color: #67A4AC;
+  cursor: pointer;
+}
+
+.toggle-replies-btn:hover {
+  color: #19223C;
+  font-weight: bold;
+}
+
+/* 💬 Reply */
+.reply-btn {
+  color: #19223C;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reply-btn:hover {
+  color: #67A4AC;
+  font-style: italic;
+}
+
+/* 💬 Comment Replies */
+.reply-comments {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 2px solid #67A4AC;
+}

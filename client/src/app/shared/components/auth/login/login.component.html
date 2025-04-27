@@ -1,0 +1,22 @@
+<div class="backdrop" (click)="onClose()"></div>
+
+<div class="login-wrapper">
+  <div class="login-container">
+    <button class="close-btn" (click)="onClose()">✖</button>
+
+    <div class="login-header">
+      <h2>Chào mừng trở lại!</h2>
+      <p>Đăng nhập để tiếp tục</p>
+    </div>
+
+    <div class="login-buttons">
+      <button (click)="loginWithGoogle()" class="login-btn google-btn">
+        <img src="/icons/google-icon.svg" alt="Google"> Đăng nhập với Google
+      </button>
+
+      <button (click)="loginWithGithub()" class="login-btn github-btn">
+        <img src="/icons/github-icon.svg" alt="GitHub"> Đăng nhập với GitHub
+      </button>
+    </div>
+  </div>
+</div>

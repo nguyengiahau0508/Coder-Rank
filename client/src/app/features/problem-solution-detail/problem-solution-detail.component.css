@@ -1,0 +1,47 @@
+/* Container chính cho Solution */
+.solution-detail-container {
+  margin: 0 auto;
+  padding: 20px;
+  /* Màu nền trắng */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Khu vực Solution Blog (Trên) */
+.solution-blog-section {
+  background-color: #F5F7FA;
+  border-radius: 8px;
+  /* Màu xanh nhạt */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Khu vực Solution Comments (Dưới) */
+.solution-comments-section {
+  border-radius: 8px;
+  /* Màu xanh đậm */
+}
+
+/* Tiêu đề cho các section (nếu cần) */
+.solution-blog-section h2,
+.solution-comments-section h2 {
+  font-size: 22px;
+  color: #19223C;
+  /* Màu xanh đậm */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #67A4AC;
+  padding-bottom: 5px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .solution-detail-container {
+    padding: 15px;
+  }
+
+  .solution-blog-section,
+  .solution-comments-section {
+    padding: 15px;
+  }
+}

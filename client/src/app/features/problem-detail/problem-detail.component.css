@@ -1,0 +1,114 @@
+/* Container chính */
+.problem-detail-container {
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  /* Màu nền trắng */
+  border-radius: 8px;
+}
+
+.problem-detail-main {
+  display: flex;
+  gap: 20px;
+}
+
+.problem-detail-content {
+  flex: 3;
+  /* Chiếm nhiều không gian hơn */
+}
+
+.problem-detail-other {
+  flex: 1;
+  /* Chiếm ít không gian hơn */
+  min-width: 250px;
+  /* Đảm bảo không quá nhỏ */
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* Tiêu đề bài toán */
+.problem-detail-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.problem-detail-title h2 {
+  font-size: 22px;
+  color: #19223C;
+  /* Màu xanh đậm */
+  margin-bottom: 5px;
+}
+
+/* Giới hạn bài toán */
+.problem-detail-limit {
+  font-size: 14px;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+.problem-detail-limit p {
+  margin: 5px 0;
+}
+
+
+/* Mô tả bài toán */
+.problem-detail-description {
+  background-color: #F5F7FA;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-left: 3px solid #67A4AC;
+}
+
+/* Mẫu Test Case */
+.problem-detail-testcase-sample {
+  margin-top: 15px;
+}
+
+/* Ghi chú bài toán */
+.problem-detail-note {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #F5F7FA;
+  border-left: 3px solid #67A4AC;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #19223C;
+  line-height: 1.5;
+}
+
+/* Container chính */
+.problem-detail-tags {
+  background: #FFFFFF;
+  /* Nền trắng */
+  border: 2px solid #67A4AC;
+  /* Viền xanh nhạt */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+/* Tiêu đề Tags */
+.tags-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #19223C;
+  /* Xanh đậm */
+  margin-bottom: 10px;
+}
+
+/* Container chứa các tag */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* Khoảng cách giữa các tags */
+}

@@ -1,0 +1,22 @@
+<div class="featured-contests-container">
+  <h2>Cuộc thi Nổi bật</h2>
+
+  @if (contests().length > 0) {
+  <div class="contests-grid">
+    @for (contest of contests(); track contest.id) {
+    <div class="contest-card">
+      <img [src]="contest.image" [alt]="contest.title" class="contest-image" loading="lazy">
+      <div class="contest-details">
+        <h3>{{ contest.title }}</h3>
+        <p>Kết thúc {{ contest.endDate }}</p>
+        <span class="sponsor">{{ contest.sponsor }}</span>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+  <p>Không có cuộc thi nổi bật nào.</p>
+  }
+
+  <button class="sponsor-button">Tài trợ một Cuộc thi</button>
+</div>

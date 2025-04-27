@@ -1,0 +1,78 @@
+<app-loading [isLoading]="isLoading()"></app-loading>
+
+<div class="p-4 bg-white rounded-xl max-w-6xl grid lg:grid-cols-3 gap-6"
+  style="--main-color: #67A4AC; --dark-color: #19223C;">
+  <!-- BÊN TRÁI: Mô tả -->
+  <div class="lg:col-span-2">
+    <div class="text-[var(--main-color)] text-4xl font-bold">{{ contest()!.title }}</div>
+    <div class="text-sm text-gray-600 mt-1">
+      {{ formattedStartTime }} - {{ formattedEndTime }}
+    </div>
+
+    <div class="mt-4 flex items-center flex-wrap gap-3">
+      <!-- Nút -->
+      <div>
+        @if (isRegistered()) {
+        <button disabled
+          class="bg-[#19223C] text-white text-sm px-6 py-2 rounded-full font-semibold shadow cursor-default">
+          ✅ Đã đăng ký
+        </button>
+        } @else {
+        @if (contest()!.status == 'UPCOMING') {
+        <button (click)="onRegister()"
+          class="bg-[#67A4AC] text-white text-sm px-6 py-2 rounded-full font-semibold shadow hover:bg-[#558d93] transition duration-200">
+          Đăng ký
+        </button>
+        } @else {
+        <button disabled
+          class="border border-[#67A4AC] text-[#67A4AC] text-sm px-6 py-2 rounded-full font-semibold bg-white shadow hover:bg-[#ecf8f9] transition duration-200 cursor-default">
+          Cuộc thi ảo
+        </button>
+        }
+        }
+      </div>
+
+      <!-- Mới: Nút Xem Bảng xếp hạng -->
+      @if(contest()!.status != 'UPCOMING') {
+        <div>
+          <button (click)="onViewRanking()"
+            class="cursor-pointer bg-white text-[#67A4AC] border border-[#67A4AC] text-sm px-6 py-2 rounded-full font-semibold shadow hover:bg-[#ecf8f9] transition duration-200">
+            🏆 Xem Bảng xếp hạng
+          </button>
+        </div>
+      }
+
+      <!-- Trạng thái -->
+      <div class="flex items-center space-x-2 text-sm text-gray-500">
+        <span class="text-gray-400">•</span>
+        <span class="capitalize tracking-wide">{{ contest()!.status.toLowerCase() }}</span>
+      </div>
+    </div>
+
+    <div class="mt-6 text-lg font-medium text-[var(--dark-color)]">Chào mừng đến với {{ contest()!.title }}</div>
+
+    <app-html-viewer [content]="contest()!.description ||''" />
+  </div>
+
+  @if(contest()!.problems.length > 0) {
+  <!-- BÊN PHẢI: Danh sách Bài tập -->
+  <div class="bg-[#F5FAFB] p-4 rounded-xl">
+    <div class="text-lg font-semibold text-[var(--dark-color)] mb-4 flex items-center">
+      <span class="mr-2">📝</span> Danh sách Bài
+    </div>
+
+    <ul class="space-y-2">
+      @for (problem of contest()?.problems ?? []; track problem.id) {
+      <li class="p-3 bg-white rounded shadow hover:bg-[#F0F9FA] cursor-pointer border-l-4" [ngClass]="{
+              'border-green-400': problem.difficulty === 'easy',
+              'border-yellow-400': problem.difficulty === 'medium',
+              'border-red-400': problem.difficulty === 'hard'
+            }">
+        <div (click)="onGotoProblemDetail(problem.id)" class="font-medium text-[var(--dark-color)]">{{ problem.title }}
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
+  }
+</div>

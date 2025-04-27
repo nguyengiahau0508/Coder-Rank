@@ -1,0 +1,35 @@
+<div class="submission-card">
+  <h2>Bài Nộp #{{ submission.id }}</h2>
+  <p class="date">Thời Gian Tạo: {{ submission.createdAt | date }}</p>
+
+  <div class="badges">
+    <span class="badge language">{{ submission.language.toUpperCase() }}</span>
+    <span class="badge" [class]="submission.status">
+      {{ submission.status.replace('_', ' ').toUpperCase() }}
+    </span>
+  </div>
+
+  <p><strong>Thời Gian Thực Thi:</strong> {{ submission.executionTime }} ms</p>
+  <p><strong>Bộ Nhớ Sử Dụng:</strong> {{ submission.memoryUsed }} MB</p>
+
+  @if(submission.errorMessage) {
+  <div class="error-message">
+    <strong>Lỗi:</strong> {{ submission.errorMessage }}
+  </div>
+  }
+
+  <pre><code [highlightAuto]="submission.code || ''"></code></pre>
+
+  @if(submission.testcaseResults){
+  <div class="testcases">
+    <ul>
+      @for (testcase of submission.testcaseResults; track testcase.id) {
+      <li>
+        <span class="testcase-id">Test Case #{{ testcase.order}}</span>
+        <span class="badge" [class]="testcase.status">{{ testcase.status.replace('_', ' ').toUpperCase() }}</span>
+      </li>
+      }
+    </ul>
+  </div>
+  }
+</div>

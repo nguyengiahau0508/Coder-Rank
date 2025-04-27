@@ -1,0 +1,7 @@
+<div class="tags-container">
+  <div class="tags-list">
+    @for (tag of tags; track tag.id) {
+      <span (click)="onTagSelected(tag.id)" class="tag">{{ tag.name }}</span>
+    }
+  </div>
+</div>

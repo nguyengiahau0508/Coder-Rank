@@ -1,0 +1,31 @@
+<div class="ranking-container">
+  <h2>Xếp hạng Toàn cầu</h2>
+
+  @if (rankings().length > 0) {
+  @for (ranking of rankings(); track ranking.rank) {
+  <div class="ranking-item">
+    <span class="rank">{{ ranking.rank }}</span>
+    <div class="user-info">
+      <span class="user-icon" [style.backgroundImage]="'url(/assets/' + ranking.icon + '.png)'"
+        [class.default-icon]="!ranking.icon.includes('http')">
+        {{ !ranking.icon.includes('http') ? ranking.icon : '' }}
+      </span>
+      <div class="user-details">
+        <span class="username">{{ ranking.username }}</span>
+        <span class="country-flag" [title]="ranking.country">
+          {{ getFlagEmoji(ranking.country) }}
+        </span>
+      </div>
+    </div>
+    <div class="stats">
+      <span class="rating">Điểm đánh giá: {{ ranking.rating }}</span>
+      <span class="attended">Tham gia: {{ ranking.attended }}</span>
+    </div>
+  </div>
+  }
+  } @else {
+  <p>Không có xếp hạng nào.</p>
+  }
+
+  <button class="view-more">Xem Thêm</button>
+</div>

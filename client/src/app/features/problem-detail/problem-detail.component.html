@@ -1,0 +1,41 @@
+@if(problem()){
+<div class="problem-detail-container">
+  <app-tab-navigation [problemId]="problem()!.id" [hasHistory]="true" [hasSubmit]="true" [hasSolution]="true" />
+  <div class="problem-detail-main">
+    <div class="problem-detail-content">
+      <div class="problem-detail-title">
+        <h2>{{ problem()!.title }}</h2>
+        <div class="problem-detail-limit">
+          <p><strong>⏳ Giới hạn thời gian:</strong> {{ problem()!.timeLimit}} ms</p>
+          <p><strong>💾 Giới hạn bộ nhớ:</strong> {{ problem()!.memoryLimit}} MB</p>
+          <p><strong>📌 Số lượng Test Case tối đa:</strong> {{totalTestcase()}}</p>
+        </div>
+      </div>
+
+      <div class="problem-detail-description">
+        <app-html-viewer [content]="problem()!.description"></app-html-viewer>
+      </div>
+
+      <div class="problem-detail-testcase-sample">
+        @for(testcase of testcases();track testcase.id){
+        <app-testcase-sample [testcase]="testcase" (coppy)="copyToClipboard($event)" />
+        }
+      </div>
+      @if(problem()!.note){
+      <div class="problem-detail-note">
+        <app-html-viewer [content]="problem()!.note || ''" />
+      </div>
+      }
+    </div>
+    <div class="problem-detail-other">
+      <app-problem-submission />
+      <div class="problem-detail-tags">
+        <h3 class="tags-title">🏷️ Thẻ</h3>
+        <div class="tags-container">
+          <app-problem-tag [tags]="problem()!.tags" ></app-problem-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,31 @@
+<div class="contest-container">
+  <div class="contest-header">
+    <button class="btn-pastcontest">Cuộc thi đã qua</button>
+    <button class="btn-mycontest">Cuộc thi của tôi</button>
+  </div>
+
+  @if (contests().length > 0) {
+  @for (contest of contests(); track contest.id) {
+  <div class="contest-card">
+    <div class="image-container">
+      <img [src]="contest.image || 'images/contests/card_img_1654267951.png'" [alt]="contest.title" class="contest-image" loading="lazy">
+    </div>
+
+    <div class="card-content">
+      <div class="card-details">
+        <h3 class="card-details-title" (click)="onGoToContest(contest.id)">{{ contest.title }}</h3>
+        <p>{{ contest.endTime | date}}</p>
+      </div>
+    </div>
+
+    <button class="virtual-button">Ảo</button>
+  </div>
+  }
+
+  <app-pagination [totalItems]="pageMeta().itemCount!" [itemsPerPage]="pageMeta().take!" [currentPage]="pageMeta().page!"
+    (pageChange)="onPageChange($event)" />
+
+  } @else {
+  <p>Không có cuộc thi nào.</p>
+  }
+</div>

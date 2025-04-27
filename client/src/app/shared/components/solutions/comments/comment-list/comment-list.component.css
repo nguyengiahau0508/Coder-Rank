@@ -1,0 +1,55 @@
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #FFFFFF;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.no-comments {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1.2rem;
+  color: #19223C;
+  background-color: #F7FBFC;
+  border-radius: 12px;
+  border: 1px dashed #67A4AC;
+}
+
+.no-comments p {
+  margin: 0;
+  color: #67A4AC;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* 🌟 Animation khi thêm bình luận */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+app-comment-item {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 📱 Responsive cho thiết bị nhỏ */
+@media (max-width: 768px) {
+  .comments-list {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .no-comments p {
+    font-size: 1rem;
+  }
+}

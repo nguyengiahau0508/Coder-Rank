@@ -1,0 +1,124 @@
+
+
+
+<!--Create form-->
+@if(isCreateTestCase()){
+    <app-create (cancel)="onCancelCreateForm()"></app-create>
+}
+
+<!--Edit form-->
+@if(isEditTestCase() ){
+    <app-edit [testcase]="selectedTestCase" (cancel)="onCancelEditForm()"></app-edit>
+}
+
+<!-- Main content -->
+<div class="w-full">
+  <!-- Problem base info -->
+  <div class="flex justify-between items-center p-4 bg-[#19223C] text-white rounded-t-md">
+    <h1 class="text-2xl font-bold cursor-pointer hover:underline" routerLink="/problems/edit/{{problem()?.id}}">
+      {{problem()?.id}} - {{problem()?.title}}
+    </h1>
+    <div class="flex items-center">
+      <button (click)="onAddTestCase()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Add
+      </button>
+    </div>
+  </div>
+
+
+<!-- Filter -->
+<div class="mt-4 mb-4 ">
+  <div class="flex flex-wrap gap-6 items-center">
+    <!-- Filter by isSample-->
+    <div class="flex items-center">
+      <label for="isSample" class="mr-2 whitespace-nowrap text-sm font-medium text-gray-700">Filter by Sample:</label>
+      <select id="isSample" [(ngModel)]="isSampleFilter" (change)="onFilterChange()"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#67A4AC] focus:border-[#67A4AC] p-2.5">
+        <option value="">All</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <!-- Filter by take amount item-->
+    <div class="flex items-center">
+      <label for="takeAmount" class="mr-2 whitespace-nowrap text-sm font-medium text-gray-700">Take:</label>
+      <select id="takeAmount" [(ngModel)]="meta().take" (change)="onFilterChange()"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#67A4AC] focus:border-[#67A4AC] p-2.5">
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="20">20</option>
+        <option [value]="50">50</option>
+        <option [value]="100">100</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Test cases list -->
+  <div class="mt-4">
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3">ID</th>
+            <th scope="col" class="px-6 py-3">Input</th>
+            <th scope="col" class="px-6 py-3">Output</th>
+            <th scope="col" class="px-6 py-3">Sample</th>
+            <th scope="col" class="px-6 py-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+<!-- Loading state -->
+@if (isLoading()) {
+  <tr class="bg-white">
+    <td colspan="5" class="px-6 py-4 text-center text-gray-500">
+      <app-loading></app-loading>
+    </td>
+  </tr>
+}@else{
+@for (testcase of tescases(); track testcase.id) {
+          <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4">{{testcase.id ?? 'N/A'}}</td> <td class="px-6 py-4"> <pre class="whitespace-pre-wrap">{{testcase.input}}</pre> </td>
+            <td class="px-6 py-4">
+              <pre class="whitespace-pre-wrap">{{testcase.output}}</pre>
+            </td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-1 rounded-full text-xs" [ngClass]="{
+                          'bg-green-100 text-green-800': testcase.isSample,
+                          'bg-gray-100 text-gray-800': !testcase.isSample
+                        }">
+                {{testcase.isSample ? 'Yes' : 'No'}}
+              </span>
+            </td>
+            <td class="px-6 py-4">
+              <button (click)="onEditTestCase(testcase)" class="cursor-pointer text-blue-600 hover:text-blue-900">
+                Edit
+              </button>
+              <button (click)="onDeleteTestCase(testcase.id!)"
+                class="cursor-pointer text-red-600 hover:text-red-900 ml-2">
+                Delete
+              </button>
+            </td>
+          </tr>
+          } @empty {
+          <tr class="bg-white">
+            <td colspan="5" class="px-6 py-4 text-center text-gray-500">
+              No test cases found
+            </td>
+          </tr>
+          }
+<!-- Pagination -->
+    @if(meta().itemCount!> 0){
+    <app-pagination [totalItems]="meta().itemCount!" [itemsPerPage]="meta().take!" [currentPage]="meta().page!"
+      (pageChange)="onChangePage($event)">
+    </app-pagination>
+    }
+  }
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

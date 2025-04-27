@@ -1,0 +1,32 @@
+<div class="contest-page">
+  <div class="header">
+    <span class="trophy-icon">🏆</span>
+    <h1>Cuộc Thi Xếp Hạng Coderes</h1>
+    <p>Cuộc thi hàng tuần. Tham gia và xem xếp hạng của bạn!</p>
+    <button class="claim-reward">Nhận phần thưởng bí mật 🕮</button>
+  </div>
+
+  @if (contests().length > 0) {
+    <div class="contests-grid">
+      @for (contest of contests(); track contest.id) {
+        <div class="contest-card">
+          <div class="image-container">
+            <img [src]="contest.image || 'images/contests/card_img_1654267951.png'"
+                 [alt]="contest.title"
+                 class="contest-image"
+                 loading="eager">
+            <button class="add-to-calendar">📅</button>
+          </div>
+          <div class="contest-details">
+            <span class="timer-icon">⏳</span>
+            <p>{{ contest.timeUntilStart }}</p>
+            <h3 class="cursor-pointer" (click)="onGotoContest(contest)">{{ contest.title }}</h3>
+            <p class="sponsor">Được tài trợ bởi: {{ contest.sponsor }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p>Không có cuộc thi nào hiện có.</p>
+  }
+</div>

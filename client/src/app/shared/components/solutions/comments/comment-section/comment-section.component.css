@@ -1,0 +1,68 @@
+.comment-section {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.comment-section:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.comment-title {
+  color: #19223C;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-comments {
+  text-align: center;
+  padding: 30px;
+  background-color: #F0F9FA;
+  border-radius: 12px;
+  border: 1px dashed #67A4AC;
+}
+
+.no-comments p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #67A4AC;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 🌟 Animation cho phần bình luận */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+app-comment-box,
+app-comment-list {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 📱 Responsive cho thiết bị nhỏ */
+@media (max-width: 768px) {
+  .comment-section {
+    padding: 20px;
+  }
+
+  .comment-title {
+    font-size: 1.5rem;
+  }
+
+  .no-comments p {
+    font-size: 1rem;
+  }
+}

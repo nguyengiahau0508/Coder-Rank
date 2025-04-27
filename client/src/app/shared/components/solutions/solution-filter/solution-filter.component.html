@@ -1,0 +1,31 @@
+<div class="filter-container">
+  <div class="filter-title">🔍 Tùy Chọn Lọc</div>
+
+  <div class="filter-group">
+    <label>Sắp xếp theo:</label>
+    <select (change)="onSortChange($event)">
+      <option value="votes">Bình chọn</option>
+      <option value="views">Lượt xem</option>
+      <option value="createdAt">Gần đây</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>Thẻ:</label>
+    <select (change)="onTagSelect(getEventValue($event))">
+      <option value="" disabled selected>Thêm thẻ</option>
+      @for (tag of allTags(); track tag.id) {
+      <option [value]="tag.id">{{ tag.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="selected-tags">
+    @for (tag of selectedTags(); track tag.id) {
+    <span class="tag">
+      {{ tag.name }}
+      <button (click)="removeTag(tag)">✖</button>
+    </span>
+    }
+  </div>
+</div>

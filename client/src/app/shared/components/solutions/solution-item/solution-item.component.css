@@ -1,0 +1,79 @@
+/* Card tổng thể */
+.post-card {
+  cursor: pointer;
+  background-color: #FFFFFF;
+  /* Nền trắng */
+  color: #19223C;
+  /* Màu chữ chính */
+  border-radius: 8px;
+  padding: 12px;
+  font-family: Arial, sans-serif;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  /* Hiệu ứng đổ bóng nhẹ */
+  border: 1px solid #E0E0E0;
+  /* Viền nhẹ */
+}
+
+/* Header chứa avatar và thông tin người dùng */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Avatar */
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #67A4AC;
+  object-fit: cover;
+}
+
+/* Thông tin người dùng */
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+  color: #19223C;
+}
+
+.status {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Tiêu đề bài viết */
+.post-title {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #19223C;
+}
+
+/* Danh sách tags */
+.post-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tag {
+  background-color: #67A4AC;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Khu vực thống kê tương tác */
+.post-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+  color: #666;
+}

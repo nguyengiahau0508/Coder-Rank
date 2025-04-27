@@ -1,0 +1,7 @@
+@if(leaderboards().length > 0) {
+<div style="display: block;" class="w-full">
+  <canvas class="w-full" baseChart height="400" [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
+    [legend]="lineChartLegend">
+  </canvas>
+</div>
+}

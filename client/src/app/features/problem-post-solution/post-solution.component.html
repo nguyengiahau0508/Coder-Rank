@@ -1,0 +1,89 @@
+<div class="problem-post-solution-editor min-h-screen">
+  <div class="w-full mx-auto bg-[#FFFFFF] rounded-lg p-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-[#19223C]">
+        {{ problem()?.title }} - Giải pháp mới
+      </h2>
+      <button
+        (click)="togglePreview()"
+        class="px-4 py-2 bg-[#19223C] text-[#FFFFFF] rounded hover:bg-opacity-90 transition-colors"
+      >
+        {{ isPreviewMode() ? 'Chỉnh sửa' : 'Xem trước' }}
+      </button>
+    </div>
+
+    <!-- Tiêu đề -->
+    <div class="mb-4">
+      <label class="block text-[#19223C] font-semibold mb-1">Tiêu đề</label>
+      <input
+        type="text"
+        [(ngModel)]="solotuion().title"
+        name="title"
+        class="w-full p-2 border border-[#67A4AC] rounded focus:outline-none focus:ring-2 focus:ring-[#67A4AC]"
+        placeholder="Nhập tiêu đề cho giải pháp"
+      />
+    </div>
+
+    <!-- Tag Selection -->
+    <div class="mb-4">
+      <label class="block text-[#19223C] font-semibold mb-1">Chọn thẻ</label>
+      <select
+        multiple
+        [(ngModel)]="selectedTags"
+        (ngModelChange)="onTagsChange()"
+        name="tags"
+        class="w-full p-2 border border-[#67A4AC] rounded focus:outline-none focus:ring-2 focus:ring-[#67A4AC] max-h-32"
+      >
+        @for (tag of tags(); track tag.id) {
+          <option [ngValue]="tag">{{ tag.name }}</option>
+        }
+      </select>
+
+      <!-- Selected Tags Display -->
+      <div class="mt-2 flex flex-wrap gap-2">
+        @for (tag of solotuion().tags; track tag.id) {
+          <span
+            class="inline-flex items-center px-2 py-1 bg-[#67A4AC] text-[#FFFFFF] text-sm rounded-full"
+          >
+            {{ tag.name }}
+            <button
+              (click)="removeTag(tag)"
+              class="ml-2 text-[#FFFFFF] hover:text-[#19223C] focus:outline-none"
+            >
+              ×
+            </button>
+          </span>
+        }
+      </div>
+    </div>
+
+    <!-- Editor or Preview -->
+    <div class="content-container mb-4">
+      @if (submission()) {
+        @if (!isPreviewMode()) {
+          <app-markdown-editor
+            [submission]="submission()!"
+            (content)="onChangeContent($event)"
+            class="w-full"
+          ></app-markdown-editor>
+        } @else {
+          <app-markdown-preview
+            [content]="content"
+            class="w-full prose max-w-none p-4 border border-[#67A4AC] rounded"
+          ></app-markdown-preview>
+        }
+      }
+    </div>
+
+    <!-- Nút đăng solution -->
+    <div class="flex justify-end">
+      <button
+        (click)="submitSolution()"
+        class="px-6 py-2 bg-[#67A4AC] text-white font-semibold rounded hover:bg-[#5d939c] transition-colors"
+      >
+        Chia sẻ giải pháp
+      </button>
+    </div>
+  </div>
+</div>
