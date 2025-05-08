@@ -1,19 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { marked } from 'marked';
-import { MarkdownModule } from 'ngx-markdown';
-import { Solution } from '../../../../core/models/solutions.model';
-import { Tag } from '../../../../core/models/tag.model';
-import { SolutionTagsService } from '../../../../core/services/solution-tags.service';
-import { UsersService } from '../../../../core/services/users.service';
-import { Observable } from 'rxjs';
-import { AsyncPipe, DatePipe } from '@angular/common';
+import {Component, Input, OnInit} from '@angular/core';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {marked} from 'marked';
+import {MarkdownModule} from 'ngx-markdown';
+import {Solution} from '../../../../core/models/solutions.model';
+import {Tag} from '../../../../core/models/tag.model';
+import {SolutionTagsService} from '../../../../core/services/solution-tags.service';
+import {UsersService} from '../../../../core/services/users.service';
+import {Observable} from 'rxjs';
+import {AsyncPipe, DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-solution-blog',
   imports: [MarkdownModule, DatePipe],
   templateUrl: './solution-blog.component.html',
-  styleUrl: './solution-blog.component.css'
+  styleUrl: './solution-blog.component.css',
+  standalone: true
 })
 export class SolutionBlogComponent implements OnInit {
   @Input() solution!: Solution;
@@ -23,7 +24,7 @@ export class SolutionBlogComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private solutionTagsService: SolutionTagsService,
     private usersService: UsersService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.solutionTagsService.getTagsBySolutionId(this.solution.id).subscribe((response: Tag[]) => {

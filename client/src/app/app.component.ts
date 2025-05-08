@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './shared/components/auth/login/login.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { AuthService } from './core/services/auth.service';
-import { SharedService } from './core/services/shared/shared.service';
-import { TitleService } from './core/services/shared/title.service';
-import { FooterComponent } from './layouts/footer/footer.component';
+import {Component, OnInit} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {LoginComponent} from './shared/components/auth/login/login.component';
+import {HeaderComponent} from './layouts/header/header.component';
+import {AuthService} from './core/services/auth.service';
+import {SharedService} from './core/services/shared/shared.service';
+import {TitleService} from './core/services/shared/title.service';
+import {FooterComponent} from './layouts/footer/footer.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, LoginComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

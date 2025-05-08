@@ -6,7 +6,8 @@ import { MarkdownModule } from 'ngx-markdown';
   selector: 'app-markdown-preview',
   templateUrl: './markdown-preview.component.html',
   styleUrl: './markdown-preview.component.css',
-  imports: [MarkdownModule]
+  imports: [MarkdownModule],
+  standalone: true,
 })
 export class MarkdownPreviewComponent implements OnChanges {
   @Input({ required: true }) content: string = ``;

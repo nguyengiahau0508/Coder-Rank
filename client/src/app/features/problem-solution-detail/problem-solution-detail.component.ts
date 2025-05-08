@@ -1,19 +1,20 @@
-import { Component, signal } from '@angular/core';
-import { SolutionBlogComponent } from '../../shared/components/solutions/solution-blog/solution-blog.component';
-import { Solution } from '../../core/models/solutions.model';
-import { SolutionsService } from '../../core/services/solutions.service';
-import { ActivatedRoute } from '@angular/router';
-import { CommentSectionComponent } from '../../shared/components/solutions/comments/comment-section/comment-section.component';
-import { SolutionCommentService } from '../../core/services/solution-comments.service';
-import { TabNavigationComponent } from '../../shared/components/tab-navigation/tab-navigation.component';
-import { Comment } from '../../core/models/comment.model';
-import { CommentsService } from '../../core/services/comments.service';
+import {Component, signal} from '@angular/core';
+import {SolutionBlogComponent} from '../../shared/components/solutions/solution-blog/solution-blog.component';
+import {Solution} from '../../core/models/solutions.model';
+import {SolutionsService} from '../../core/services/solutions.service';
+import {ActivatedRoute} from '@angular/router';
+import {CommentSectionComponent} from '../../shared/components/solutions/comments/comment-section/comment-section.component';
+import {SolutionCommentService} from '../../core/services/solution-comments.service';
+import {TabNavigationComponent} from '../../shared/components/tab-navigation/tab-navigation.component';
+import {Comment} from '../../core/models/comment.model';
+import {CommentsService} from '../../core/services/comments.service';
 
 @Component({
   selector: 'app-problem-solution-detail',
   imports: [TabNavigationComponent, SolutionBlogComponent, CommentSectionComponent],
   templateUrl: './problem-solution-detail.component.html',
-  styleUrl: './problem-solution-detail.component.css'
+  styleUrl: './problem-solution-detail.component.css',
+  standalone: true,
 })
 export class ProblemSolutionDetailComponent {
   solution?: Solution

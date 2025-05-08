@@ -7,13 +7,14 @@ import { Roles } from 'src/common/decorators/roles.decorator';
 import { PageOptionsDto } from 'src/common/shared/pagination/dtos';
 import { Course } from '../courses/entities/course.entity';
 import { ILike } from 'typeorm';
+import {RolesGuard} from 'src/authentications/guard/role.guard';
 
 @Controller('lessons')
 export class LessonsController {
   constructor(private readonly lessonsService: LessonsService) { }
 
   @Post()
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.Admin)
   async create(@Body() data: Lesson) {
     return {
@@ -79,6 +80,8 @@ export class LessonsController {
   }
 
   @Patch(':id')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.Admin)
   async update(@Param('id') id: string, @Body() data: Course) {
     const existingLesson = await this.lessonsService.findOneById(id);
     if (!existingLesson) {

@@ -1,13 +1,14 @@
-import { Injectable, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import {Injectable, signal} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/auth';  // Cập nhật API URL backend
+  private apiUrl = environment.apiUrl + '/auth';  // Cập nhật API URL backend
   isLoginModalOpen = signal(false);
 
   openLoginModal() {
@@ -20,7 +21,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) {}
 
   // Xử lý redirect sau khi đăng nhập thành công
   redirectAfterLogin() {
@@ -36,7 +37,7 @@ export class AuthService {
 
   // Đăng nhập bằng tài khoản nội bộ (email/password)
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/local/login`, { email, password }, { withCredentials: true });
+    return this.http.post(`${this.apiUrl}/local/login`, {email, password}, {withCredentials: true});
   }
 
   // Đăng nhập bằng Google
@@ -53,17 +54,17 @@ export class AuthService {
 
   // Đăng xuất
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/local/logout`, {}, { withCredentials: true });
+    return this.http.post(`${this.apiUrl}/local/logout`, {}, {withCredentials: true});
   }
 
   // Làm mới token
   refreshToken(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/refresh-token`, {}, { withCredentials: true });
+    return this.http.post(`${this.apiUrl}/refresh-token`, {}, {withCredentials: true});
   }
 
   // Lấy thông tin người dùng (profile)
   getProfile(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/profile`, { withCredentials: true });
+    return this.http.get(`${this.apiUrl}/profile`, {withCredentials: true});
   }
 }
 

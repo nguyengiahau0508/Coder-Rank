@@ -1,9 +1,9 @@
 
-import { ChangeDetectorRef, Component, ViewEncapsulation, type AfterViewInit, ElementRef, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import {ChangeDetectorRef, Component, ViewEncapsulation, type AfterViewInit, ElementRef, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {
   type EditorConfig,
   ClassicEditor,
@@ -51,17 +51,18 @@ import {
   TableToolbar,
   TextTransformation
 } from 'ckeditor5';
-import { PasteFromOfficeEnhanced, SourceEditingEnhanced } from 'ckeditor5-premium-features';
+import {PasteFromOfficeEnhanced, SourceEditingEnhanced} from 'ckeditor5-premium-features';
 
 
 import translations from 'ckeditor5/translations/vi.js';
 import premiumFeaturesTranslations from 'ckeditor5-premium-features/translations/vi.js';
 
+
 const LICENSE_KEY =
-  'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU2MjU1OTksImp0aSI6ImVmNjM0NThlLTcyOGMtNDNhMy1iNDAxLTgwODYyNjI5NjZhOCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImQ2NTAxMDZlIn0.YXAuKcmhTfC3FGZ4cBYdof5zIY80LK518ag09tNOwxO0B-fNBPKdC9bjSON0s7cvyOeeIUvJWkNDyP3oyR6QjQ';
+  'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDc4NzE5OTksImp0aSI6ImIwNWMwM2E1LTk5ZTMtNGE5ZC05ZDkxLTJiYzE4NWI3NTgzOSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImM0Nzk0NDliIn0.tXrGjCoMJoqLt7NxgjN-mFarmjzAg4akr87WGOQwBQcqn9-6Srs61BS8wLscGSiQE4ZKPap67oOcOQSZmCjexg';
 const CLOUD_SERVICES_TOKEN_URL =
-  'https://5cdolkscqf8h.cke-cs.com/token/dev/69132504b67643139c1a780df3f9384d6bc9f32055ec0817a4d611b54628?limit=10';
-const CLOUD_SERVICES_WEBSOCKET_URL = 'wss://5cdolkscqf8h.cke-cs.com/ws';
+  'https://hgctpcpo4ii8.cke-cs.com/token/dev/791faea982e2a969e034f708eb9a2852884e5a84bbad768b74211b9d6b52?limit=10';
+const CLOUD_SERVICES_WEBSOCKET_URL = 'wss://hgctpcpo4ii8.cke-cs.com/ws';
 
 const AI_API_KEY = '<YOUR_AI_API_KEY>';
 
@@ -77,6 +78,7 @@ const DOCUMENT_ID = '<YOUR_DOCUMENT_ID>';
     CommonModule,
     CKEditorModule
   ],
+  standalone: true,
   templateUrl: './text-editor.component.html',
   styleUrl: './text-editor.component.css',
   encapsulation: ViewEncapsulation.None,
@@ -85,7 +87,7 @@ export class TextEditorComponent implements AfterViewInit {
   @Input() htmlInitialData: string = '';
   @Output() htmlChange = new EventEmitter<string>();
 
-  constructor(private changeDetector: ChangeDetectorRef) { }
+  constructor(private changeDetector: ChangeDetectorRef) {}
 
   public isLayoutReady = false;
   public Editor = ClassicEditor;
@@ -282,7 +284,7 @@ export class TextEditorComponent implements AfterViewInit {
   }
 
 
-  public onChange({ editor }: { editor: any }): void {
+  public onChange({editor}: {editor: any}): void {
     const data = editor.getData();
     this.htmlChange.emit(data);
   }
