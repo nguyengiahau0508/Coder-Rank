@@ -16,6 +16,10 @@
             @for (prob of problems(); track prob.id; let i = $index) {
               <th class="px-4 py-3 text-center text-sm font-semibold">Câu({{ i + 1 }}) - {{ prob.id }}</th>
             }
+
+<th class="px-4 py-3 text-center text-sm font-semibold">
+  ± Điểm
+</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +55,18 @@
                   }
                 </td>
               }
+
+
+<td
+  class="text-center px-4 py-3 text-sm font-medium"
+  [ngClass]="{
+    'text-green-600': ratingDelta(entry) > 0,
+    'text-red-600':   ratingDelta(entry) < 0,
+    'text-gray-500':  ratingDelta(entry) === 0
+  }"
+>
+  {{ ratingDelta(entry) > 0 ? '+' + ratingDelta(entry) : ratingDelta(entry) }}
+</td>
             </tr>
           }
         </tbody>

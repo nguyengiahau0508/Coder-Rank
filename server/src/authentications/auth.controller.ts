@@ -58,10 +58,10 @@ export class AuthController {
 		try {
 			const tokens = await this.authService.handleOAuthLogin(req, AuthProviders.Google);
 			this.setAuthCookies(res, tokens);
-
 			const userRole = await this.authService.getRole(req.user.email)
 			if (userRole == Role.Admin) return res.redirect('http://localhost:5000/dashboard');
-			return res.redirect('http://localhost:4200/callback');
+			//return res.redirect(`${this.appConfigService.student_url}/callback`);
+			return res.redirect(`http://localhost:4200/callback`);
 		} catch (err) {
 			console.error('OAuth callback error:', err);
 			return res.status(500).json({message: 'Xảy ra lỗi trong quá trình xác thực'});
@@ -130,7 +130,6 @@ export class AuthController {
 			this.setAuthCookies(res, tokens);
 			return res.status(200).json({message: 'Token refreshed successfully', data: req.user});
 		} catch (err) {
-			console.error('Refresh token error:', err);
 			return res.status(500).json({message: 'Xảy ra lỗi trong quá trình làm mới token'});
 		}
 	}

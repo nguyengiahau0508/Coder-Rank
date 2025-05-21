@@ -78,6 +78,7 @@ export class SubmissionsService extends BaseService<Submission> {
     let totalTime = 0;
     let totalMemory = 0;
     let acceptedCount = 0;
+    console.log(result)
 
     for (let i = 0; i < result.length; i++) {
 
@@ -147,6 +148,7 @@ export class SubmissionsService extends BaseService<Submission> {
       await this.leaderBoardsService.save(leaderboard)
       await this.problemsService.save(problem)
     }
+    console.log(savedSubmission)
     return await this.repository.save(savedSubmission);
   }
 }

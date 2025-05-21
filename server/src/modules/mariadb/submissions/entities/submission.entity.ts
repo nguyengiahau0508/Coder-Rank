@@ -31,10 +31,10 @@ export class Submission extends BaseEntity {
   })
   status: Status;
 
-  @Column({ nullable: true })
+  @Column({ type: 'float', nullable: true })
   executionTime: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'float', nullable: true })
   memoryUsed: number;
 
   @Column({ type: 'text', nullable: true })

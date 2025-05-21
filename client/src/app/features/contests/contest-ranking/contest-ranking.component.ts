@@ -135,4 +135,10 @@ export class ContestRankingComponent {
     this.meta.set({ ...this.meta(), page });
     this.loadLeaderboard();
   }
+
+
+  // leaderboard.component.ts
+  ratingDelta(entry: Leaderboard): number {
+    return (entry.newRating ?? 0) - (entry.oldRating ?? 0);
+  }
 }
